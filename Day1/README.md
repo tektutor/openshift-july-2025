@@ -328,9 +328,11 @@ docker ps | grep jegan
 
 Let's create the load balancer container
 ```
-docker run -d --name lb-jegan --hostname lb-jegan bitnami/nginx:latest
+docker run -d --name lb-jegan --hostname lb-jegan -p 80:8080 bitnami/nginx:latest
 docker ps | grep jegan
 ```
 
 Expected output
 ![image](https://github.com/user-attachments/assets/60590970-1bbd-4d8e-b789-d29d7e3160b1)
+
+Let's configure the lb container

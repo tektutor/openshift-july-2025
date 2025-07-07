@@ -45,7 +45,7 @@
 </pre>  
 
 ## Info - Processor 
-<pre></pre>
+<pre>
    - comes in 2 packages
      1. SCM ( Single Chip Module ) - one IC will host 1 Processor
      2. MCM ( Multiple Chip Module ) - one IC will host many Processors
@@ -103,6 +103,7 @@
 </pre>
 
 ## Info - Hypervisor High Level Architecture
+![Hypervisor Architecture](HypervisorHighLevelArchitecture.png)
 
 ## Info - Installing Docker Community Edition in Ubuntu
 ```
@@ -223,6 +224,7 @@ docker images
 </pre>
 
 ## Docker High Level Architecture
+![Docker Architecture](DockerHighLevelArchitecture.png)
 
 ## Lab - Checking the docker version
 ```

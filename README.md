@@ -1,1 +1,2 @@
-# openshift-july-2025
+# Red Hat Openshift 07-11 July 2025
+

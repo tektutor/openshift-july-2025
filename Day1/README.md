@@ -45,12 +45,16 @@ https://forms.cloud.microsoft/r/VnKfhdE33L
 - is a virtualization technology
 - It is a Hardware + Software Technology
   - You need a Processor that supports Virtualization
-  - Intel, the virtualization feature is called VT-X
-  - AMD, the virtualization feature is called AMD-V
+  - In Intel Processors, the virtualization feature set is called VT-X
+  - In AMD Processors, the virtualization feature set is called AMD-V
 - Processors supports Multiple CPU Cores
-  - Each Physical Core supports two logical/virtual cores 
+  - Each Physical core supports two logical/virtual cores minimum
+  - Server grade Processors may support 2/4/8 virtual cores per Physical core
 - it came around year 2000
-- it disrupted the way the IT industry 
+- it disrupted the way the IT industry works
+- with limited servers we can run multiple Guest Operating Systems
+  - this helps organizations save cost in terms of infrastructure, server procurement, better hardware utilization, real-estate cost (rent/lease)
+  - hence, every company irrespective of size adapted this technology
 - this helps us run multiple OS in a single machine side by side
 - more than one OS can be active at the same time
 </pre>

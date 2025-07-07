@@ -235,3 +235,8 @@ docker images | grep hello-world
 docker rmi hello-world:latest
 docker images | grep hello-world
 ```
+
+## Lab - Finding more details about a docker image in local registyr
+```
+docker image inspect mysql:latest
+```

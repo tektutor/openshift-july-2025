@@ -88,6 +88,39 @@ https://forms.cloud.microsoft/r/VnKfhdE33L
 </pre>
 
 ## Containers Overview
+<pre>
+- is an application virtualization technology
+- this is light-weight virtualization
+- technically each container is an applicaiton process, they are not Operating System
+- due to some similarities, generally people tend to complare containers with vms, which technically wrong
+- because each VM represents one fully functional Operating System, while each container represents one single application
+- Similarities between containers and VMs
+  - Just like an Operating System has its own dedicated ports 0-65535, containers also get's their own ports
+  - Just like an Operating System has its own file system, containers also has their own file system
+  - Just like an Operating System may one or more network cards, containers can also have one or more network cards(virtual)
+  - Just like an Operating System gets IP Address(es), containers can also acquire one or more IP addresses( mostly Private IPs )
+- Containers run on top of the Host OS, i.e wherever Docker/Podman is installed, the hardware resources allocated to the OS where containers are running are shared by all containers
+- Containers don't have their own OS Kernel, they depend on the OS where the containers are running
+- each container runs in a separate namespace
+- namespace helps isolating the resources used by one container from the other containers
+- Linux kernel features that enables the containerization
+  - Namespace
+  - Control Groups(CGroups)
+</pre>
+
+## Info - If Container is a Linux Technology how we are able to use Docker in Mac/Windows?
+<pre>
+- When we installed Docker in Windows, it installs a thin linux-layer which provides the Linux Kernel
+- Linux containerized applications can run on Windows with the help of the Linux kernel that comes with Docker/Podman
+- Linux containerized applications can run on Mac with the help of the Linux kernel that comes with Docker/Podman
+</pre>
+
+## Info - How Dot Net Containerized applications are supported in Linux/Mac?
+<pre>
+- MONO is Dot Net Framework implemented for Linux/Mac
+- it is opensource framework which implements the .Net Specifications
+- hence, technically you can develop,compile and run .Net applications natively in Linux/Mac
+</pre>
 
 ## Docker Overview
 

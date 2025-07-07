@@ -154,16 +154,17 @@ docker images
 
 ## Info - If Container is a Linux Technology how we are able to use Docker in Mac/Windows?
 <pre>
-- When we installed Docker in Windows, it installs a thin linux-layer which provides the Linux Kernel
-- Linux containerized applications can run on Windows with the help of the Linux kernel that comes with Docker/Podman
-- Linux containerized applications can run on Mac with the help of the Linux kernel that comes with Docker/Podman
+- When we install Docker for Windows or Docker for Mac, it installs a thin linux-layer which provides the Linux Kernel
+- Linux containerized applications can run on Windows with the help of the Linux kernel that comes with Docker
+- Linux containerized applications can run on Mac with the help of the Linux kernel that comes with Docker
 </pre>
 
 ## Info - How Dot Net Containerized applications are supported in Linux/Mac?
 <pre>
-- MONO is Dot Net Framework implemented for Linux/Mac
-- it is opensource framework which implements the .Net Specifications
-- hence, technically you can develop,compile and run .Net applications natively in Linux/Mac
+- MONO is a Dot Net Framework implementation for Linux/Mac
+- it is an opensource framework which implements the .Net Specification
+- hence, technically one can develop,compile and run .Net applications natively in Linux/Mac just like Windows
+- however, mostly .Net Core applications work smoothly
 </pre>
 
 ## Docker Overview

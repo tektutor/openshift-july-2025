@@ -25,6 +25,7 @@ https://forms.cloud.microsoft/r/VnKfhdE33L
 - In this system, how many maximum VMs can run at the same time?
   - 4x2 = 8 Logical/Virtual Cores
   - 1 Host OS + 7 Guest OS can run at the same time
+  - i.e total 8 OS can run parallely 
 - Host OS
   - is the Operating system that we install directly on top of the Hardware
   - this also requires some dedicated hardware resources
@@ -36,7 +37,7 @@ https://forms.cloud.microsoft/r/VnKfhdE33L
   - Each Guest OS has to be allocated with dedicated hardware resources
     - Processor Cores
     - RAM
-    - Storage (HDD/SDD)
+    - Storage (HDD/SDD
 </pre>  
 
 ## Hypervisor Overview

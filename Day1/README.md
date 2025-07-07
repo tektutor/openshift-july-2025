@@ -348,6 +348,7 @@ In order to configure the nginx-lb to force working as a Load Balancer, we need 
 ```
 docker cp lb-jegan:/etc/nginx/nginx.conf .
 ```
+The above path will work only if you have used the nginx:latest image from Docker Hub, if you are using bitnami/nginx, then the path should be /opt/bitnami/nginx/conf/nginx.conf
 
 You need to replace the IP address of your nginx web server containers in the copied nginx.conf file
 Let's configure the lb container nginx.conf file as shown below
@@ -357,6 +358,7 @@ We need copy the updated nginx.conf from local machine to the lb container
 ```
 docker cp nginx.conf lb-jegan:/etc/nginx/nginx.conf
 ```
+In the above command, if you are using bitnami/nginx:latest image, you should the above path to /opt/bitnami/nginx/conf/nginx.conf
 
 We need to restart the lb container to apply config changes
 ```
@@ -375,6 +377,7 @@ docker cp index.html nginx2-jegan:/usr/share/nginx/html/index.html
 echo "Web Server 3" > index.html
 docker cp index.html nginx3-jegan:/usr/share/nginx/html/index.html
 ```
+In case you are using bitnami/nginx:latest image, the above path should be /app/index.html in the place of /usr/share/nginx/html/index.html
 
 Now try to access the lb balancer using your local machine IP or just localhost from the web browser
 ```

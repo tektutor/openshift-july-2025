@@ -172,5 +172,11 @@ https://forms.cloud.microsoft/r/VnKfhdE33L
 </pre>
 
 ## Docker Alternatives
+<pre>
+- Containerd
+- Podman
+  - follows rootless architecture, 
+  - hence it is used in Red Hat Openshift 4.x onwards, Docker or any other container engine is not supported in Red Hat Openshift
+</pre>
 
 ## Docker High Level Architecture

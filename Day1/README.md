@@ -275,3 +275,8 @@ hostname - is name used on the os level
 ubuntu:latest - is the docker image used to create the container
 /bin/bash - is the application you wish to run within the container once the container is put to run
 </pre>
+
+To come out of the container shell
+```
+exit
+```

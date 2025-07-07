@@ -295,3 +295,15 @@ docker ps -a | grep jegan
 docker start ubuntu-jegan
 docker ps | grep jegan
 ```
+
+## Lab - Restart a running container, helps in apply config changes, etc
+```
+docker restart ubuntu-jegan
+```
+
+## Lab - Rename a container
+```
+docker ps
+docker rename <old-container-name> <new-container-name>
+docker ps
+```

@@ -250,3 +250,17 @@ docker ps
 ```
 docker ps -a
 ```
+
+## Lab - Creating a container in foreground/interactive mode
+```
+docker run -it --name ubuntu-jegan --hostname ubuntu-jegan ubuntu:latest /bin/bash
+```
+
+In the above command
+<pre>
+it - stands for interactive terminal
+name - name of the container, using this docker server can identify a container
+hostname - is name used on the os level
+ubuntu:latest - is the docker image used to create the container
+/bin/bash - is the application you wish to run within the container once the container is put to run
+</pre>

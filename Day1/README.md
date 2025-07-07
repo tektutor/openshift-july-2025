@@ -164,7 +164,7 @@ docker images
 - MONO is a Dot Net Framework implementation for Linux/Mac
 - it is an opensource framework which implements the .Net Specification
 - hence, technically one can develop,compile and run .Net applications natively in Linux/Mac just like Windows
-- however, mostly .Net Core applications work smoothly
+- however, mostly .Net Core applications work smoothly which is good enough for Dot Net Microservices
 </pre>
 
 ## Docker Overview

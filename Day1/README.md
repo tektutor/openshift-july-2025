@@ -21,7 +21,7 @@
   - BootCamp (Commercial licensed product - Used in Macbooks)
 </pre>  
 
-## System Configuration
+## How many Virtual Machines at the max can be provisioned on a system with below configurations
 <pre>
 - Intel Processor with 4 Physical Cores
 - 16 GB RAM

@@ -8,7 +8,7 @@ https://forms.cloud.microsoft/r/VnKfhdE33L
 
 ## Boot Loaders
 <pre>
-- this is typicalled referred as dual/multi boot
+- this is typically referred as dual/multi boot
 - it is a system utilities that is installed in the Master Boot Record(MBR)
 - Sector 0, Byte 0 in your hard disk which is just 512 bytes
 - When we boot a system, once the BIOS POST(Power On Self Test) completes, the BIOS will instruct the CPU to run the Boot Loader

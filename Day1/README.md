@@ -335,4 +335,49 @@ docker ps | grep jegan
 Expected output
 ![image](https://github.com/user-attachments/assets/60590970-1bbd-4d8e-b789-d29d7e3160b1)
 
-Let's configure the lb container
+
+
+We need to find the IP address of our nginx web server containers
+```
+docker inspect -f {{.NetworkSettings.IPAddress} nginx1-jegan
+docker inspect -f {{.NetworkSettings.IPAddress} nginx2-jegan
+docker inspect -f {{.NetworkSettings.IPAddress} nginx3-jegan
+```
+
+In order to configure the nginx-lb to force working as a Load Balancer, we need the nginx.conf file from lb container, let's copy it
+```
+docker cp lb-jegan:/etc/nginx/nginx.conf .
+```
+
+You need to replace the IP address of your nginx web server containers in the copied nginx.conf file
+Let's configure the lb container nginx.conf file as shown below
+![image](https://github.com/user-attachments/assets/111bcb3e-fb31-47f7-8420-9e184022df6a)
+
+We need copy the updated nginx.conf from local machine to the lb container
+```
+docker cp nginx.conf lb-jegan:/etc/nginx/nginx.conf
+```
+
+We need to restart the lb container to apply config changes
+```
+docker restart lb-jegan
+docker ps
+```
+
+In order to verify the pages are coming from which web server, let's customize the index.html files in all the web servers
+```
+echo "Web Server 1" > index.html
+docker cp index.html nginx1-jegan:/usr/share/nginx/html/index.html
+
+echo "Web Server 2" > index.html
+docker cp index.html nginx2-jegan:/usr/share/nginx/html/index.html
+
+echo "Web Server 3" > index.html
+docker cp index.html nginx3-jegan:/usr/share/nginx/html/index.html
+```
+
+Now try to access the lb balancer using your local machine IP or just localhost from the web browser
+```
+http://localhost
+```
+Each time you refresh the page, you are supposed to get response from different web server containers in a round robin fashion.

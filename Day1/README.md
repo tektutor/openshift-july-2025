@@ -190,3 +190,13 @@ docker --version
 
 Expected output
 ![image](https://github.com/user-attachments/assets/8255be05-bfe3-4764-a9c5-2e444d16de1d)
+
+
+## Lab - Listing the docker images in the local docker registry
+```
+docker images
+```
+
+Expected ouptut
+![image](https://github.com/user-attachments/assets/a50f6eee-67f9-41de-a8ff-a1ebad66476b)
+

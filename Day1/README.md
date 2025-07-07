@@ -228,3 +228,10 @@ docker images
 docker pull mysql:latest
 docker images | grep mysql
 ```
+
+## Lab - Deleting a docker image from local docker registry
+```
+docker images | grep hello-world
+docker rmi hello-world:latest
+docker images | grep hello-world
+```

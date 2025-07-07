@@ -123,6 +123,53 @@ https://forms.cloud.microsoft/r/VnKfhdE33L
 </pre>
 
 ## Docker Overview
+<pre>
+- Docker is developed in Go Lang by a company called Docker Inc
+- Docker comes in 2 flavours
+  1. Docker Community Edition - Docker CE ( open source )
+  2. Docker Enterprise Edition - Docker EE ( requires license )
+</pre>
+
+## Container Engine Overview
+<pre>
+- is a high-level software that helps us manage containers and container images  
+- it is very user-friendly
+- Container Engine depends on Container Runtimes to manage containers and container images internally
+- For example
+  - Docker depends on containerd which in turn depends on runC Container Runtime 
+  - Podman depends on CRI-O container runtime
+</pre>
+
+## Container Runtime Overview
+<pre>
+- is a low-level software that helps us manage containers and container images
+- not so user-friendly, hence no end-user use this directly
+- Examples
+  - runC 
+  - CRI-O
+</pre>
+
+## What all will be there in a Container?
+<pre>
+- one application executable
+- dependent libraries and/or softwares to run the application executable
+- it is a way one can bundle and ship the application in a container format that can be readily executed as it is pre-configured
+</pre>
+
+## What is a Container Image?
+<pre>
+- Container Image is a way to bundle/package your application + application depencies ( library/framework, softwares )
+- Container Image is a blueprint/template of an application
+</pre>
+
+## What is a Container?
+<pre>
+- Container is a running instance of a Container Image
+- We can create any number of containers from a single Container Image
+- For example
+  - Using a mysql container image, we can create 100s of mysql containers
+</pre>  
+</pre>
 
 ## Docker Alternatives
 

@@ -246,6 +246,7 @@ docker images
 ```
 
 Expected ouptut
+<img src="https://github.com/user-attachments/assets/a50f6eee-67f9-41de-a8ff-a1ebad66476b" alt="List docker images" width="75%" />
 ![image](https://github.com/user-attachments/assets/a50f6eee-67f9-41de-a8ff-a1ebad66476b)
 
 ## Lab - Troubleshooting Permission denied errors while running docker commands

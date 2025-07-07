@@ -200,3 +200,20 @@ docker images
 Expected ouptut
 ![image](https://github.com/user-attachments/assets/a50f6eee-67f9-41de-a8ff-a1ebad66476b)
 
+## Lab - Troubleshooting Permission denied errors while running docker commands
+Check the user groups your user belongs to
+```
+id
+```
+If the docker usergroup is missing, that explains why you are getting the permission denied error.
+
+Any user which is part of docker user group, they gain read/write permission to the unix socket.  
+
+You can run this command to force your user to refresh the groups it belongs
+```
+newgroup docker
+## or you may run
+su $USER
+id
+```
+Now you should be able to see your user is part of docker group, hence you won't get permission denied errors moving forward. But you may have to redo this for every terminal you are opening in separate window/tab.

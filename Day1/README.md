@@ -191,6 +191,10 @@ docker --version
 Expected output
 ![image](https://github.com/user-attachments/assets/8255be05-bfe3-4764-a9c5-2e444d16de1d)
 
+## Lab - Finding more details about your docker installation
+```
+docker info
+```
 
 ## Lab - Listing the docker images in the local docker registry
 ```

@@ -307,3 +307,8 @@ docker ps
 docker rename <old-container-name> <new-container-name>
 docker ps
 ```
+
+## Lab - Getting inside a running container shell, the assumption is the container is running
+```
+docker exec -it ubuntu-jegan /bin/bash
+```

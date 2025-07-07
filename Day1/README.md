@@ -251,6 +251,12 @@ docker ps
 docker ps -a
 ```
 
+## Lab - Create a hello-world container
+```
+docker run --name hello-jegan hello-world:latest
+docker ps -a
+```
+
 ## Lab - Creating a container in foreground/interactive mode
 ```
 docker run -it --name ubuntu-jegan --hostname ubuntu-jegan ubuntu:latest /bin/bash

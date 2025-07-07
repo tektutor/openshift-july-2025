@@ -263,6 +263,8 @@ docker run -it --name ubuntu-jegan --hostname ubuntu-jegan ubuntu:latest /bin/ba
 pwd
 whoami
 ls -l
+hostname
+hostname -i
 ```
 
 In the above command

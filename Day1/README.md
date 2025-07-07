@@ -1,6 +1,6 @@
 # Day 1
 
-## Boot Loaders
+## Info - Boot Loaders
 <pre>
 - this is typically referred as dual/multi boot
 - it is a system utility that is installed in the Master Boot Record(MBR)
@@ -21,7 +21,7 @@
   - BootCamp (Commercial licensed product - Used in Macbooks)
 </pre>  
 
-## How many Virtual Machines at the max can be provisioned on a system with below configurations
+## Info - How many Virtual Machines at the max can be provisioned on a system with below configurations ?
 <pre>
 - Intel Processor with 4 Physical Cores
 - 16 GB RAM
@@ -43,6 +43,26 @@
     - RAM
     - Storage (HDD/SDD
 </pre>  
+
+## Info - Processor 
+<pre></pre>
+   - comes in 2 packages
+     1. SCM ( Single Chip Module ) - one IC will host 1 Processor
+     2. MCM ( Multiple Chip Module ) - one IC will host many Processors
+        - one IC comes 4/8 Processors
+   - each Processor comes with multiple CPU Cores
+     - 32 cores
+     - 64 cores
+     - 128 cores
+     - 256 cores
+     - 512 cores
+    - motherboard with 4 Processor Sockets
+    - let's assume we install MCM based IC with 4 Processor on each IC
+    - Total Processors - 4 x 4 = 16 Processors
+    - Assume, each Processor supports 128 cores
+    - Total cores = 128 x 16 = 2048 phycical cores
+    - Total logical/virtual cores = 2048 x 2 = 4096
+</pre>
 
 ## Hypervisor Overview
 <pre>
@@ -84,6 +104,32 @@
 
 ## Info - Hypervisor High Level Architecture
 
+## Info - Installing Docker Community Edition in Ubuntu
+```
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo usermod -aG docker $USER
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo systemctl status docker
+sudo $USER
+docker --version
+docker images
+```
 ## Containers Overview
 <pre>
 - is an application virtualization technology

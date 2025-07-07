@@ -1,5 +1,11 @@
 # Day 1
 
+## Pre-test url
+<pre>
+https://forms.cloud.microsoft/r/VnKfhdE33L  
+</pre>  
+
+
 ## Boot Loaders
 <pre>
 - this is typicalled referred as dual/multi boot

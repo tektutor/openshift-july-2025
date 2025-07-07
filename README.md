@@ -10,6 +10,7 @@ Dell PowerEdge R840
 Processor - Intel Xeon Platinum 8163 with 192 Virtual Cores
 RAM - 1 TB
 Storage - 21 TB
+OS - Ubuntu 24.04 64-bit
 </pre>
 
 Ubuntu Server 1 ( 192.168.10.200 - Password palmeto@123 )

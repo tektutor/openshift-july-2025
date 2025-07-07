@@ -87,6 +87,8 @@ https://forms.cloud.microsoft/r/VnKfhdE33L
 - each Guest OS must be allocated with dedicated Hardware resources, hence this type of virtualization is called Heavy-weight virtualization
 </pre>
 
+## Info - Hypervisor High Level Architecture
+
 ## Containers Overview
 <pre>
 - is an application virtualization technology
@@ -180,3 +182,11 @@ https://forms.cloud.microsoft/r/VnKfhdE33L
 </pre>
 
 ## Docker High Level Architecture
+
+## Lab - Checking the docker version
+```
+docker --version
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/8255be05-bfe3-4764-a9c5-2e444d16de1d)

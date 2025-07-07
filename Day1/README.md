@@ -260,6 +260,9 @@ docker ps -a
 ## Lab - Creating a container in foreground/interactive mode
 ```
 docker run -it --name ubuntu-jegan --hostname ubuntu-jegan ubuntu:latest /bin/bash
+pwd
+whoami
+ls -l
 ```
 
 In the above command

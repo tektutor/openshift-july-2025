@@ -312,3 +312,25 @@ docker ps
 ```
 docker exec -it ubuntu-jegan /bin/bash
 ```
+
+## Lab - Let's setup a load balancer with 3 web server behind the lb container
+Let's create 3 web server containers, replace 'jegan' with your name
+```
+docker run -d --name nginx1-jegan --hostname nginx1-jegan bitnami/nginx:latest
+docker run -d --name nginx2-jegan --hostname nginx2-jegan bitnami/nginx:latest
+docker run -d --name nginx3-jegan --hostname nginx3-jegan bitnami/nginx:latest
+```
+
+Let's list the web server containers we created 
+```
+docker ps | grep jegan
+```
+
+Let's create the load balancer container
+```
+docker run -d --name lb-jegan --hostname lb-jegan bitnami/nginx:latest
+docker ps | grep jegan
+```
+
+Expected output
+![image](https://github.com/user-attachments/assets/60590970-1bbd-4d8e-b789-d29d7e3160b1)

@@ -240,3 +240,13 @@ docker images | grep hello-world
 ```
 docker image inspect mysql:latest
 ```
+
+## Lab - Listing all currently running containers
+```
+docker ps
+```
+
+## Lab - List all containers even if they are not running
+```
+docker ps -a
+```

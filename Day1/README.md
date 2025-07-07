@@ -1,6 +1,6 @@
 # Day 1
 
-## Pre-test url
+## Pre-test url ( Complete it from the Palmeto Cloud Machine )
 <pre>
 https://forms.cloud.microsoft/r/VnKfhdE33L  
 </pre>  

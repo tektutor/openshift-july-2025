@@ -254,6 +254,7 @@ docker ps -a
 ## Lab - Create a hello-world container
 ```
 docker run --name hello-jegan hello-world:latest
+docker ps
 docker ps -a
 ```
 
@@ -276,7 +277,21 @@ ubuntu:latest - is the docker image used to create the container
 /bin/bash - is the application you wish to run within the container once the container is put to run
 </pre>
 
-To come out of the container shell
+To come out of the container shell, the below will also terminate(stops) the container
 ```
 exit
+```
+
+## Lab - Stopping a running container
+```
+docker ps | grep jegan
+docker stop ubuntu-jegan
+docker ps -a | grep jegan
+```
+
+## Lab - Start the exited container, this will start the container in the background(daemon) mode
+```
+docker ps -a | grep jegan
+docker start ubuntu-jegan
+docker ps | grep jegan
 ```

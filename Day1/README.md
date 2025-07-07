@@ -11,7 +11,7 @@
 - In case the Boot Loader detects multiple OS, it then prepares a menu and gives us options to choose the OS you wish to boot into
 - Only one OS can be active at any point of time
 - Examples
-  - LILO 
+  - LILO <img src="https://github.com/user-attachments/assets/a50f6eee-67f9-41de-a8ff-a1ebad66476b" alt="List docker images" width="75%" align="left" />
     - Linux Loader
     - Not used anymore
      - was used in Older Linux OS in 1990's
@@ -247,8 +247,6 @@ docker images
 
 Expected ouptut
 <img src="https://github.com/user-attachments/assets/a50f6eee-67f9-41de-a8ff-a1ebad66476b" alt="List docker images" width="75%" align="left" />
-![image](https://github.com/user-attachments/assets/a50f6eee-67f9-41de-a8ff-a1ebad66476b)
-
 ## Lab - Troubleshooting Permission denied errors while running docker commands
 Check the user groups your user belongs to
 ```

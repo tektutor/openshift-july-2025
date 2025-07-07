@@ -326,7 +326,7 @@ Let's list the web server containers we created
 docker ps | grep jegan
 ```
 
-Let's create the load balancer container, in the below command if port 80 on the left is already taken by other participant, you can change it to maybe 81,82,
+Let's create the load balancer container, in the below command if port 80 on the left has to be different for different participant, you can change it to maybe 81,82,any port available on the server ( 100 to 65535 ).  The port on the right side is fixed, it has to be 80 for this nginx:latest image.
 ```
 docker run -d --name lb-jegan --hostname lb-jegan -p 80:80 bitnami/nginx:latest
 docker ps | grep jegan
@@ -339,9 +339,9 @@ Expected output
 
 We need to find the IP address of our nginx web server containers
 ```
-docker inspect -f {{.NetworkSettings.IPAddress} nginx1-jegan
-docker inspect -f {{.NetworkSettings.IPAddress} nginx2-jegan
-docker inspect -f {{.NetworkSettings.IPAddress} nginx3-jegan
+docker inspect -f {{.NetworkSettings.IPAddress}} nginx1-jegan
+docker inspect -f {{.NetworkSettings.IPAddress}} nginx2-jegan
+docker inspect -f {{.NetworkSettings.IPAddress}} nginx3-jegan
 ```
 
 In order to configure the nginx-lb to force working as a Load Balancer, we need the nginx.conf file from lb container, let's copy it

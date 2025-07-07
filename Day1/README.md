@@ -221,3 +221,10 @@ su $USER
 id
 ```
 Now you should be able to see your user is part of docker group, hence you won't get permission denied errors moving forward. But you may have to redo this for every terminal you are opening in separate window/tab.
+
+## Lab - Downloading image from Docker Hub Remote Registry to Docker Local Registry
+```
+docker images
+docker pull mysql:latest
+docker images | grep mysql
+```

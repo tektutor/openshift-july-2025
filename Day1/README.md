@@ -326,9 +326,9 @@ Let's list the web server containers we created
 docker ps | grep jegan
 ```
 
-Let's create the load balancer container
+Let's create the load balancer container, in the below command if port 80 on the left is already taken by other participant, you can change it to maybe 81,82,
 ```
-docker run -d --name lb-jegan --hostname lb-jegan -p 80:8080 bitnami/nginx:latest
+docker run -d --name lb-jegan --hostname lb-jegan -p 80:80 bitnami/nginx:latest
 docker ps | grep jegan
 ```
 

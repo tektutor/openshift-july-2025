@@ -4,7 +4,8 @@
 <pre>
 - boot loader software utility loads the Operating system
 - while boot loader is pretty much always the one which loads the OS, 
-  you could also use thie tool to install multiple OS on the same machine, this is typically referred as dual/multi boot
+  you could also use thie tool to install multiple OS on the same machine, 
+  this is typically referred as dual/multi boot
 - it is a system utility that is installed in the Master Boot Record(MBR)
 - Sector 0, Byte 0 in your hard disk is called Master Boot Record, which is just 512 bytes
 - in legacy BIOS, the boot loader has to fit within 512 bytes, but the modern UEFI BIOS allows the boot loader utility 

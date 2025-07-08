@@ -242,3 +242,7 @@ Replace 'jegan' with your name
 oc new-project jegan
 ```
 
+## Lab - Finding your currently active project
+```
+oc project
+```

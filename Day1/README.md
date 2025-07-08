@@ -3,13 +3,16 @@
 ## Info - Boot Loaders
 <pre>
 - boot loader software utility loads the Operating system
-- while boot loader is pretty much always the one which loads the OS, you could also use thie tool to install multiple OS on the same machine, this is typically referred as dual/multi boot
+- while boot loader is pretty much always the one which loads the OS, 
+  you could also use thie tool to install multiple OS on the same machine, this is typically referred as dual/multi boot
 - it is a system utility that is installed in the Master Boot Record(MBR)
 - Sector 0, Byte 0 in your hard disk is called Master Boot Record, which is just 512 bytes
-- in legacy BIOS, the boot loader has to fit within 512 bytes, but the modern UEFI BIOS allows the boot loader utility to be stored in hard disks, hence there is no size restrictions imposed
+- in legacy BIOS, the boot loader has to fit within 512 bytes, but the modern UEFI BIOS allows the boot loader utility 
+  to be stored in hard disks, hence there is no size restrictions imposed
 - When we boot a system, once the BIOS POST(Power On Self Test) completes, the BIOS will instruct the CPU to run the Boot Loader
 - The Boot Loader then scans the hard disk(s) looking for Operating Systems
-- In case the Boot Loader detects multiple OS, it then prepares a menu and gives us options to choose the OS you wish to boot into
+- In case the Boot Loader detects multiple OS, it then prepares a menu and gives us options to choose the OS you wish to 
+  boot into
 - Only one OS can be active at any point of time
 - Examples
   - LILO 
@@ -28,7 +31,9 @@
 - 16 GB RAM
 - 512 GB HDD/SDD
 - In this system, how many maximum VMs can run at the same time?
-  - With Intel Hyperthreading or AMD Simultaneous Multithreading (SMT), each Physical processor supports running multiple threading concurrently, most processor CPU cores supports aleast 2 threads per core, hence 4 Cores x 2 = 8 Logical/Virtual Cores
+  - With Intel Hyperthreading or AMD Simultaneous Multithreading (SMT), each Physical processor supports running multiple 
+    threading concurrently, most processor CPU cores supports aleast 2 threads per core, 
+    hence 4 Cores x 2 = 8 Logical/Virtual Cores
   - 1 Host OS + 7 Guest OS can run at the same time
   - i.e total 8 OS can run parallely 
 - Host OS
@@ -78,7 +83,8 @@
 - it came around year 2000
 - it disrupted the way the IT industry works
 - with limited servers we can run multiple Guest Operating Systems
-  - this helps organizations save cost in terms of infrastructure, server procurement, better hardware utilization, real-estate cost (rent/lease)
+  - this helps organizations save cost in terms of infrastructure, server procurement, better hardware utilization, 
+    real-estate cost (rent/lease)
   - hence, every company irrespective of size adapted this technology
 - this helps us run multiple OS in a single machine side by side
 - more than one OS can be active at the same time

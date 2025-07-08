@@ -406,7 +406,7 @@ docker ps | grep jegan
 Expected output
 ![image](https://github.com/user-attachments/assets/14c1196f-266a-4e90-b74d-27e72d143e32)
 
-Let's create the load balancer container, in the below command if port 80 on the left has to be different for different participant, you can change it to maybe 81,82,any port available on the server ( 100 to 65535 ).  The port on the right side is fixed, it has to be 80 for this nginx:latest image.
+Let's create the load balancer container, in the below command the port 80 on the left has to be different for different participant, you can change it to maybe 81,82 or any port available on the server ( 100 to 65535 ).  The port on the right side is fixed, it has to be 8080 for bitnami/nginx:latest image.
 ```
 docker run -d --name lb-jegan --hostname lb-jegan -p 80:8080 bitnami/nginx:latest
 docker ps | grep jegan

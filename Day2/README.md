@@ -97,3 +97,38 @@
 - Openshift supports new features like Build, BuildConfig which aren't supported by Kubernetes 
 </pre>
 
+## Info - Cluster
+<pre>
+- Group of physical servers or Group of virtual machines running locally, or a group of ec2 instances running in public AWS cloud
+- cluster is a group of servers
+  - these servers are normally called nodes
+  - these servers comes with some Operating Systems
+  - there are types of servers
+    1. Master Node
+    2. Worker Nodes
+- In a Cluster, there will be many master and worker nodes, put together they are called cluster
+</pre>
+
+## Info - OpenShift Master Node
+<pre>
+- this can be Physical Server or a Virtual Machine locally or on cloud with some Operating System installed in it
+- this nodes comes with pre-installed Podman Container Engine and CRI-O container runtime
+- In Kubernetes/Openshift Master Nodes a special set of components will be running 
+- the special set of components are officially referred as Control Plan Components
+- control plane components
+  - API Server
+  - etcd  
+  - Scheduler
+  - Controller Managers
+- Control Plane components collectively supports the Container Orchestration features
+</pre>
+
+## Info - Openshift Worker Node
+<pre>
+- this can be Physical Server or a Virtual Machine locally or on cloud with some Operating System installed in it 
+- this is where user applications will be running
+- in addition to the user applications, some minimal Openshift common components also runs there
+  - kubelet - a service that communicates with the CRI-O Container Runtime via the CRI interface
+  - kubelet runs on both master and worker nodes
+  - kube-proxy, CoreDNS
+</pre>

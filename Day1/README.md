@@ -2,7 +2,8 @@
 
 ## Info - Boot Loaders
 <pre>
-- this is typically referred as dual/multi boot
+- boot loader software utility loads the Operating system
+- while boot loader is pretty much always the one which loads the OS, you could also use thie tool to install multiple OS on the same machine, this is typically referred as dual/multi boot
 - it is a system utility that is installed in the Master Boot Record(MBR)
 - Sector 0, Byte 0 in your hard disk is called Master Boot Record, which is just 512 bytes
 - in legacy BIOS, the boot loader has to fit within 512 bytes, but the modern UEFI BIOS allows the boot loader utility to be stored in hard disks, hence there is no size restrictions imposed
@@ -11,7 +12,7 @@
 - In case the Boot Loader detects multiple OS, it then prepares a menu and gives us options to choose the OS you wish to boot into
 - Only one OS can be active at any point of time
 - Examples
-  - LILO <img src="https://github.com/user-attachments/assets/a50f6eee-67f9-41de-a8ff-a1ebad66476b" alt="List docker images" width="75%" align="left" />
+  - LILO 
     - Linux Loader
     - Not used anymore
      - was used in Older Linux OS in 1990's
@@ -27,7 +28,7 @@
 - 16 GB RAM
 - 512 GB HDD/SDD
 - In this system, how many maximum VMs can run at the same time?
-  - 4x2 = 8 Logical/Virtual Cores
+  - With Intel Hyperthreading or AMD Simultaneous Multithreading (SMT), each Physical processor supports running multiple threading concurrently, most processor CPU cores supports aleast 2 threads per core, hence 4 Cores x 2 = 8 Logical/Virtual Cores
   - 1 Host OS + 7 Guest OS can run at the same time
   - i.e total 8 OS can run parallely 
 - Host OS
@@ -49,7 +50,7 @@
    - comes in 2 packages
      1. SCM ( Single Chip Module ) - one IC will host 1 Processor
      2. MCM ( Multiple Chip Module ) - one IC will host many Processors
-        - one IC comes 4/8 Processors
+        - one IC comes with 4/8 Processors
    - each Processor comes with multiple CPU Cores
      - 32 cores
      - 64 cores
@@ -60,7 +61,7 @@
     - let's assume we install MCM based IC with 4 Processor on each IC
     - Total Processors - 4 x 4 = 16 Processors
     - Assume, each Processor supports 128 cores
-    - Total cores = 128 x 16 = 2048 phycical cores
+    - Total cores = 128 x 16 = 2048 physical cores
     - Total logical/virtual cores = 2048 x 2 = 4096
 </pre>
 

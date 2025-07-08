@@ -292,3 +292,10 @@ oc get pods
 oc get pod
 oc get po
 ```
+
+## Lab - Finding more details(meta-data) about deployments, replicaset and pods
+```
+oc describe deploy/nginx
+oc describe rs/nginx-c7f5d84f9
+oc describe pod/nginx-c7f5d84f9-85vvj
+```

@@ -499,3 +499,73 @@ Now try to access the lb balancer using your local machine IP or just localhost 
 http://localhost
 ```
 Each time you refresh the page, you are supposed to get response from different web server containers in a round robin fashion.
+
+## Lab - Volume mounting to externally persist the data permanently
+
+Let's first create a mysql db server container and allow it store the data on the container storage
+```
+docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 mysql:latest
+```
+
+List the containers
+```
+docker ps
+```
+
+Get inside the mysql container shell and use the mysql client to connect to the mysql db servers, when prompts for password type root@123
+```
+docker exec -it mysql sh
+mysql -u root -p
+```
+
+Let's create a DATABASE, table and insert some records
+```
+SHOW DATABASES;
+CREATE DATABASE tektutor;
+USE tektutor;
+SHOW TABLES;
+CREATE TABLE training ( id INT NOT NULL UNIQUE, name VARCHAR(300) NOT NULL, duration VARCHAR(50) NOT NULL, PRIMARY KEY(id) );
+INSERT INTO training VALUES ( 1, "Microservices with SpringBoot", "5 Days" );
+INSERT INTO training VALUES ( 2, "Developing Openshift Operators with Go lang", "5 Days" );
+SELECT * FROM training;
+exit
+exit
+```
+
+Let's delete the mysql container to see we also will loose the data when the container is deleted
+```
+docker rm -f mysql
+```
+
+Let's create a new mysql container, but this time let's perist the data in an external disk(our local path)
+```
+mkdir -p /tmp/jegan/mysql
+docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 mysql:latest
+docker exec -it mysql sh
+mysql -u root -p
+SHOW DATABASES;
+CREATE DATABASE tektutor;
+USE tektutor;
+SHOW TABLES;
+CREATE TABLE training ( id INT NOT NULL UNIQUE, name VARCHAR(300) NOT NULL, duration VARCHAR(50) NOT NULL, PRIMARY KEY(id) );
+INSERT INTO training VALUES ( 1, "Microservices with SpringBoot", "5 Days" );
+INSERT INTO training VALUES ( 2, "Developing Openshift Operators with Go lang", "5 Days" );
+SELECT * FROM training;
+exit
+exit
+```
+
+Let's delete the mysql container
+```
+docker rm -f mysql
+```
+
+Let's recreate a new mysql container mounting the same local mysql path
+```
+docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 -v /tmp/jegan/mysql:/var/lib/mysql mysql:latest
+docker exec -it mysql sh
+mysql -u root -p
+SHOW DATABASES;
+USE tektutor;
+SHOW TABLES;
+```

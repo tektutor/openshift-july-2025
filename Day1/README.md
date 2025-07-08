@@ -434,7 +434,7 @@ Expected output
 
 You need to replace the IP address of your nginx web server containers in the copied nginx.conf file
 Let's configure the lb container nginx.conf file as shown below
-![image](https://github.com/user-attachments/assets/111bcb3e-fb31-47f7-8420-9e184022df6a)
+![image](https://github.com/user-attachments/assets/a38becd5-a9d0-426a-9eb9-316c0065d8a7)
 
 You may use this as a reference to update your nginx.conf as shown below
 ```
@@ -467,7 +467,7 @@ http {
 ```
 
 We need to copy the updated nginx.conf from local machine to the lb container
-```
+
 docker cp nginx.conf lb-jegan:/opt/bitnami/nginx/conf/nginx.conf
 ```
 In the above command, if you are using bitnami/nginx:latest image, you should the above path to /opt/bitnami/nginx/conf/nginx.conf

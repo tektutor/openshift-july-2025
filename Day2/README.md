@@ -266,3 +266,29 @@ The below command will delete everything inside the project.
 oc delete project jegan
 ```
 
+## Lab - Creating your first application deployment into your project
+```
+oc project jegan
+oc create deployment nginx --image=bitnami/nginx:latest --replicas=3
+```
+
+List all deployments in your project
+```
+oc get deployments
+oc get deployment
+oc get deploy
+```
+
+List all replicasets in your project
+```
+oc get replicasets
+oc get replicaset
+oc get rs
+```
+
+List all pods in your project
+```
+oc get pods
+oc get pod
+oc get po
+```

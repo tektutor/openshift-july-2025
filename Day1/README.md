@@ -467,9 +467,10 @@ http {
 ```
 
 We need to copy the updated nginx.conf from local machine to the lb container
-
+```
 docker cp nginx.conf lb-jegan:/opt/bitnami/nginx/conf/nginx.conf
 ```
+
 In the above command, if you are using bitnami/nginx:latest image, you should the above path to /opt/bitnami/nginx/conf/nginx.conf
 
 We need to restart the lb container to apply config changes
@@ -490,6 +491,7 @@ docker cp index.html nginx2-jegan:/app/index.html
 echo "Web Server 3" > index.html
 docker cp index.html nginx3-jegan:/app/index.html
 ```
+
 In case you are using bitnami/nginx:latest image, the above path should be /app/index.html in the place of /usr/share/nginx/html/index.html
 
 Now try to access the lb balancer using your local machine IP or just localhost from the web browser

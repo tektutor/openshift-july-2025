@@ -95,6 +95,8 @@
 - Openshift recommends using RHCOS in master and worker nodes
 - In case your Openshift cluster uses RHCOS for master nodes and RHEL in worker nodes, then upgrading Openshift from webconsole or using oc command will not work
 - Openshift supports new features like Build, BuildConfig which aren't supported by Kubernetes 
+- comes with Prometheus monitoring tool with Graphana visual dashboards pre-integrated
+- comes with pre-integrated RedHat marketplace from where we could selectively install additional operators
 </pre>
 
 ## Info - Cluster
@@ -111,8 +113,12 @@
 
 ## Info - OpenShift Master Node
 <pre>
-- this can be Physical Server or a Virtual Machine locally or on cloud with some Operating System installed in it
+- this can be Physical Server or a Virtual Machine locally or on cloud with RHCOS Operating System installed in it
 - this nodes comes with pre-installed Podman Container Engine and CRI-O container runtime
+- common components 
+   - kube-proxy
+   - CoreDNS
+   - kubelet 
 - In Kubernetes/Openshift Master Nodes a special set of components will be running 
 - the special set of components are officially referred as Control Plan Components
 - control plane components
@@ -125,7 +131,7 @@
 
 ## Info - Openshift Worker Node
 <pre>
-- this can be Physical Server or a Virtual Machine locally or on cloud with some Operating System installed in it 
+- this can be a Physical Server or a Virtual Machine locally or on cloud with either RHEL or RHCOS Operating System installed in it 
 - this is where user applications will be running
 - in addition to the user applications, some minimal Openshift common components also runs there
   - kubelet - a service that communicates with the CRI-O Container Runtime via the CRI interface

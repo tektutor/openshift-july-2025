@@ -568,4 +568,6 @@ mysql -u root -p
 SHOW DATABASES;
 USE tektutor;
 SHOW TABLES;
+exit
+exit
 ```

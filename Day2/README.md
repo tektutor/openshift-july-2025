@@ -128,10 +128,10 @@
 - In Kubernetes/Openshift Master Nodes a special set of components will be running 
 - the special set of components are officially referred as Control Plan Components
 - control plane components
-  - API Server
-  - etcd  
-  - Scheduler
-  - Controller Managers
+  - API Server (Pod)
+  - etcd (Pod)  
+  - Scheduler (Pod)
+  - Controller Managers (Pod)
 - Control Plane components collectively supports the Container Orchestration features
 </pre>
 
@@ -156,3 +156,26 @@
 - ports from 0 upto 1024 are reserved for internal use
 - user applications are allowed to run only as non-admin users, hence container images with root user won't work normally in OpenShift
 </pre>
+
+## Info - Pod Overview
+<pre>
+- is a collection of related containers
+- in other words, a group of containers
+- is the smallest unit that can be deployed into Kubernetes/Openshift
+- containers within the same Pods shares the same IP Address and Ports
+- there are atleast two containers per pod
+  - one secret infra-container which is invisible in Openshift but visible in Kubernetes ( this containers provides network features )
+  - application container
+- as per industry best practice, only one application is supposed to run per Pod
+</pre>  
+
+## Info - API Server Overview
+<pre>
+- this is a Pod  
+</pre>
+
+## Info - etcd Overview
+
+## Info - Scheduler Overview
+
+## Info - Controller Managers Overview

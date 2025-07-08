@@ -22,4 +22,8 @@
    - decide what is the scope of your application
    - should it be restricted to cluster-level access or should it be accessible 
      outside the orchestration platform as well  
+- Examples
+  - Docker SWARM
+  - Google Kubernetes
+  - Red Hat Openshift
 </pre>

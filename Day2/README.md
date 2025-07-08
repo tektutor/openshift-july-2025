@@ -246,3 +246,17 @@ oc new-project jegan
 ```
 oc project
 ```
+
+## Lab - Listing all projects
+```
+oc get projects
+```
+
+## Lab - Switching between projects
+```
+oc project
+oc project default
+oc project
+oc project jegan
+
+```

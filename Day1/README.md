@@ -249,9 +249,9 @@ Expected output
 ```
 docker images
 ```
-
 Expected ouptut
-<img src="https://github.com/user-attachments/assets/a50f6eee-67f9-41de-a8ff-a1ebad66476b" alt="List docker images" width="75%" align="left" />
+![image](https://github.com/user-attachments/assets/b168ce79-77dc-4155-97d7-aac6719e2abf)
+
 ## Lab - Troubleshooting Permission denied errors while running docker commands
 Check the user groups your user belongs to
 ```

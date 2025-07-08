@@ -236,3 +236,9 @@ oc get nodes
 oc describe node/master01.ocp4.palmeto.org
 ```
 
+## Lab - Create a new project
+Replace 'jegan' with your name
+```
+oc new-project jegan
+```
+

@@ -260,6 +260,8 @@ oc project
 oc project jegan
 ```
 
+
+
 ## Lab - Deleting your project ( Please don't delete any other projects as it will corrupt openshift setup )
 The below command will delete everything inside the project.
 ```
@@ -318,4 +320,12 @@ Change the imagePullPolicy from Always to IfNotPresent and save it.  Remember it
 Now you may check the pods you scale up will be in running state
 ```
 oc get pods
+```
+
+## Lab - Deleting a deployment
+The delete deploy/web command will delete deployment by web, the replicasets under the web deployment and all the pods running within the deployment.
+```
+oc project jegan
+oc get deploy
+oc delete deploy/web
 ```

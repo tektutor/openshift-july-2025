@@ -299,3 +299,23 @@ oc describe deploy/nginx
 oc describe rs/nginx-c7f5d84f9
 oc describe pod/nginx-c7f5d84f9-85vvj
 ```
+
+## Lab - Scale up your deployment
+```
+oc project jegan
+oc get deploy
+oc scale deploy/nginx --replicas=5
+oc get po -w
+```
+
+In order to change the imagePullPolicy in the deployment, you need to edit the deploy
+```
+oc edit deploy/nginx
+```
+
+Change the imagePullPolicy from Always to IfNotPresent and save it.  Remember it is case sensitive.
+
+Now you may check the pods you scale up will be in running state
+```
+oc get pods
+```

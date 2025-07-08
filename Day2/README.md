@@ -258,5 +258,11 @@ oc project
 oc project default
 oc project
 oc project jegan
-
 ```
+
+## Lab - Deleting your project ( Please don't delete any other projects as it will corrupt openshift setup )
+The below command will delete everything inside the project.
+```
+oc delete project jegan
+```
+

@@ -276,6 +276,8 @@ docker images
 docker pull mysql:latest
 docker images | grep mysql
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/a89df2d1-8cd2-46bc-81c7-2ecb287a1895)
 
 ## Lab - Deleting a docker image from local docker registry
 ```
@@ -283,16 +285,24 @@ docker images | grep hello-world
 docker rmi hello-world:latest
 docker images | grep hello-world
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/9584b1ab-3b83-49b7-83b2-d41e7b83f732)
 
 ## Lab - Finding more details about a docker image in local registry
 ```
 docker image inspect mysql:latest
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/f7ed00cd-fd97-4cc8-861e-1cc3bfe2ce4b)
+![image](https://github.com/user-attachments/assets/892db4d8-70f2-46ea-a959-c0c23cb8c1f9)
+
 
 ## Lab - Listing all currently running containers
 ```
 docker ps
 ```
+![image](https://github.com/user-attachments/assets/bdd432ef-bf22-4945-b5be-7d99f7a3f478)
+
 
 ## Lab - List all containers even if they are not running
 ```
@@ -305,6 +315,8 @@ docker run --name hello-jegan hello-world:latest
 docker ps
 docker ps -a
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/ade99371-5154-4e8c-b91e-8f9fec143352)
 
 ## Lab - Creating a container in foreground/interactive mode
 ```
@@ -315,6 +327,8 @@ ls -l
 hostname
 hostname -i
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/99c0329b-a44f-4dde-8903-2cafaea7755e)
 
 In the above command
 <pre>
@@ -329,6 +343,8 @@ To come out of the container shell, the below will also terminate(stops) the con
 ```
 exit
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/ac5fe7e7-7ab0-4fda-a7eb-fe5c91694837)
 
 ## Lab - Stopping a running container
 ```
@@ -336,6 +352,9 @@ docker ps | grep jegan
 docker stop ubuntu-jegan
 docker ps -a | grep jegan
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/89f16c98-0da4-4821-9a96-73d08993ada7)
+
 
 ## Lab - Start the exited container, this will start the container in the background(daemon) mode
 ```
@@ -343,11 +362,16 @@ docker ps -a | grep jegan
 docker start ubuntu-jegan
 docker ps | grep jegan
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/e445d03a-c6cd-46e8-b84f-39bbd866fda7)
 
 ## Lab - Restart a running container, helps in apply config changes, etc
 ```
 docker restart ubuntu-jegan
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/4a45eaf1-25a8-4567-94b9-5922622b8296)
+
 
 ## Lab - Rename a container
 ```
@@ -355,11 +379,17 @@ docker ps
 docker rename <old-container-name> <new-container-name>
 docker ps
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/795cf60c-3651-480e-9115-cacdbc12c0e0)
 
 ## Lab - Getting inside a running container shell, the assumption is the container is running
 ```
 docker exec -it ubuntu-jegan /bin/bash
+ls
+exit
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/fb51db8b-aa38-4ce1-ad3e-7a909c38b3fe)
 
 ## Lab - Let's setup a load balancer with 3 web server behind the lb container
 Let's create 3 web server containers, replace 'jegan' with your name
@@ -373,6 +403,8 @@ Let's list the web server containers we created
 ```
 docker ps | grep jegan
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/14c1196f-266a-4e90-b74d-27e72d143e32)
 
 Let's create the load balancer container, in the below command if port 80 on the left has to be different for different participant, you can change it to maybe 81,82,any port available on the server ( 100 to 65535 ).  The port on the right side is fixed, it has to be 80 for this nginx:latest image.
 ```
@@ -381,9 +413,7 @@ docker ps | grep jegan
 ```
 
 Expected output
-![image](https://github.com/user-attachments/assets/60590970-1bbd-4d8e-b789-d29d7e3160b1)
-
-
+![image](https://github.com/user-attachments/assets/8ae6069f-7128-441e-9a5e-7e2d2734c6b7)
 
 We need to find the IP address of our nginx web server containers
 ```
@@ -391,11 +421,17 @@ docker inspect -f {{.NetworkSettings.IPAddress}} nginx1-jegan
 docker inspect -f {{.NetworkSettings.IPAddress}} nginx2-jegan
 docker inspect -f {{.NetworkSettings.IPAddress}} nginx3-jegan
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/a4fe436d-b837-4031-8e22-4b36b449ab95)
 
 In order to configure the nginx-lb to force working as a Load Balancer, we need the nginx.conf file from lb container, let's copy it
 ```
-docker cp lb-jegan:/etc/nginx/nginx.conf .
+docker cp lb-jegan:/opt/bitnami/nginx/conf.default/nginx.conf .
+cat nginx.conf
 ```
+Expected output
+![image](https://github.com/user-attachments/assets/b5246d9f-d31a-4b29-9b45-74055f7eebfc)
+
 The above path will work only if you have used the nginx:latest image from Docker Hub, if you are using bitnami/nginx, then the path should be /opt/bitnami/nginx/conf/nginx.conf
 
 You need to replace the IP address of your nginx web server containers in the copied nginx.conf file

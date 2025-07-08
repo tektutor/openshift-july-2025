@@ -138,9 +138,21 @@
 ## Info - Openshift Worker Node
 <pre>
 - this can be a Physical Server or a Virtual Machine locally or on cloud with either RHEL or RHCOS Operating System installed in it 
+- Red Hat recommends installs RHCOS in both master and worker nodes
 - this is where user applications will be running
 - in addition to the user applications, some minimal Openshift common components also runs there
   - kubelet - a service that communicates with the CRI-O Container Runtime via the CRI interface
   - kubelet runs on both master and worker nodes
   - kube-proxy, CoreDNS
+</pre>
+
+## Info - Red Hat Enterprise Core OS (RHCOS)
+<pre>
+- its an optimized small-footprint Linux Operating System based on RHEL
+- it comes with pre-installed Podman Container Engine and CRI-O Container Runtime
+- it enforces many restrictions
+  - many folders are made read-only
+  - certain folders are allowed to be modified by certain Operators alone
+- ports from 0 upto 1024 are reserved for internal use
+- user applications are allowed to run only as non-admin users, hence container images with root user won't work normally in OpenShift
 </pre>

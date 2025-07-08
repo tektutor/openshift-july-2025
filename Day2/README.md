@@ -219,3 +219,20 @@
   - CronJob Controller
   - Endpoint Controller
 </pre>
+
+## Lab - Finding openshift version
+```
+oc version
+kubectl version
+```
+
+## Lab - Listing all the nodes in the Red Hat Openshift cluster
+```
+oc get nodes
+```
+
+## Lab - Finding more details about a node
+```
+oc describe node/master01.ocp4.palmeto.org
+```
+

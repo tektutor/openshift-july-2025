@@ -365,7 +365,7 @@ docker ps | grep jegan
 Expected output
 ![image](https://github.com/user-attachments/assets/e445d03a-c6cd-46e8-b84f-39bbd866fda7)
 
-## Lab - Restart a running container, helps in apply config changes, etc
+## Lab - Restart a running container, helps in apply config changes, etc/opt/bitnami/nginx/conf
 ```
 docker restart ubuntu-jegan
 ```
@@ -424,9 +424,9 @@ docker inspect -f {{.NetworkSettings.IPAddress}} nginx3-jegan
 Expected output
 ![image](https://github.com/user-attachments/assets/a4fe436d-b837-4031-8e22-4b36b449ab95)
 
-In order to configure the nginx-lb to force working as a Load Balancer, we need the nginx.conf file from lb container, let's copy it
+In order to configure the nginx-lb to work as a Load Balancer, we need the nginx.conf file from lb container, let's copy it to locl machine and configure it
 ```
-docker cp lb-jegan:/opt/bitnami/nginx/conf.default/nginx.conf .
+docker cp lb-jegan:/opt/bitnami/nginx/conf/nginx.conf .
 cat nginx.conf
 ```
 Expected output
@@ -440,7 +440,7 @@ Let's configure the lb container nginx.conf file as shown below
 
 We need copy the updated nginx.conf from local machine to the lb container
 ```
-docker cp nginx.conf lb-jegan:/etc/nginx/nginx.conf
+docker cp nginx.conf lb-jegan:/opt/bitnami/nginx/conf/nginx.conf
 ```
 In the above command, if you are using bitnami/nginx:latest image, you should the above path to /opt/bitnami/nginx/conf/nginx.conf
 

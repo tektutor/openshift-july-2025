@@ -10,10 +10,11 @@
 - Sector 0, Byte 0 in your hard disk is called Master Boot Record, which is just 512 bytes
 - in legacy BIOS, the boot loader has to fit within 512 bytes, but the modern UEFI BIOS allows the boot loader utility 
   to be stored in hard disks, hence there is no size restrictions imposed
-- When we boot a system, once the BIOS POST(Power On Self Test) completes, the BIOS will instruct the CPU to run the Boot Loader
+- When we boot a system, once the BIOS POST(Power On Self Test) completes, the BIOS will instruct the CPU to run the 
+  Boot Loader
 - The Boot Loader then scans the hard disk(s) looking for Operating Systems
-- In case the Boot Loader detects multiple OS, it then prepares a menu and gives us options to choose the OS you wish to 
-  boot into
+- In case the Boot Loader detects multiple OS, it then prepares a menu and gives us options to choose the OS you 
+  wish to boot into
 - Only one OS can be active at any point of time
 - Examples
   - LILO 

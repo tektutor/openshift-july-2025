@@ -220,6 +220,39 @@
   - Endpoint Controller
 </pre>
 
+## Info - Deployment Overview
+<pre>
+- this is meant for deploying stateless applications
+- the Pods can be deployed on any node, they can moved around to any node without any restrictions
+- when a deployment is created it will deployment, replicaset and pod
+- Deployment is a resource or Kubernetes/Openshift object
+- It is YAML file stored inside etcd database
+- The deployment YAML file is used as input by the Deployment Controller
+- This represents your stateless application running within K8s/Openshift cluster
+- Responsible for Rolling update
+- This monitors the replicaset
+</pre>
+
+## Info - ReplicaSet Overview
+<pre>
+- this is a YAML file stored within etcd database
+- this is one of the K8s/Openshift resource/object
+- this is used an input to ReplicaSet Controller
+- this captures information like how many Pods are supposed be running, what container image should be used, etc
+- This resource is managed by ReplicaSet controller
+- Monitors the pods
+</pre>
+
+## Info - Pod Overview
+<pre>
+- this is a YAML file stored within etcd database
+- this is one of the K8s/Openshift resource/object
+- this is the smallest unit that can be deployment and managed by K8s/Openshift cluster
+- Within each Pod, there is one hidden pause container that takes care of networking aspects of a Pod
+- Within each Pod, there will be one main application container
+- Optionally each Pod, may also have some side-car(helper) container
+</pre>
+
 ## Lab - Finding openshift version
 ```
 oc version

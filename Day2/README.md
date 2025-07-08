@@ -67,6 +67,10 @@
 - Kubernetes 
   - allows deploying application only using existing container images
   - not possible to deploy application from source code
+- Kubernetes allows one to extend the Kubernetes features by 
+  - Custom Resource Definitions (CRD)
+  - Custom Controllers
+  - Custom Operators
 </pre>
 
 ## Info - Red Hat Openshift
@@ -90,4 +94,6 @@
 - Openshift allows using either Red Hat Enterprise Linux(RHEL) or RHCOS in Openshift worker nodes
 - Openshift recommends using RHCOS in master and worker nodes
 - In case your Openshift cluster uses RHCOS for master nodes and RHEL in worker nodes, then upgrading Openshift from webconsole or using oc command will not work
+- Openshift supports new features like Build, BuildConfig which aren't supported by Kubernetes 
 </pre>
+

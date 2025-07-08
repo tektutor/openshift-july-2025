@@ -408,7 +408,7 @@ Expected output
 
 Let's create the load balancer container, in the below command if port 80 on the left has to be different for different participant, you can change it to maybe 81,82,any port available on the server ( 100 to 65535 ).  The port on the right side is fixed, it has to be 80 for this nginx:latest image.
 ```
-docker run -d --name lb-jegan --hostname lb-jegan -p 80:80 bitnami/nginx:latest
+docker run -d --name lb-jegan --hostname lb-jegan -p 80:8080 bitnami/nginx:latest
 docker ps | grep jegan
 ```
 
@@ -432,13 +432,41 @@ cat nginx.conf
 Expected output
 ![image](https://github.com/user-attachments/assets/b5246d9f-d31a-4b29-9b45-74055f7eebfc)
 
-The above path will work only if you have used the nginx:latest image from Docker Hub, if you are using bitnami/nginx, then the path should be /opt/bitnami/nginx/conf/nginx.conf
-
 You need to replace the IP address of your nginx web server containers in the copied nginx.conf file
 Let's configure the lb container nginx.conf file as shown below
 ![image](https://github.com/user-attachments/assets/111bcb3e-fb31-47f7-8420-9e184022df6a)
 
-We need copy the updated nginx.conf from local machine to the lb container
+You may use this as a reference to update your nginx.conf as shown below
+```
+# Based on https://www.nginx.com/resources/wiki/start/topics/examples/full/#nginx-conf
+# user              www www;  ## Default: nobody
+
+worker_processes  auto;
+error_log         "/opt/bitnami/nginx/logs/error.log";
+pid               "/opt/bitnami/nginx/tmp/nginx.pid";
+
+events {
+    worker_connections  1024;
+}
+
+http {
+	upstream backend {
+		server 172.17.0.2:8080;
+		server 172.17.0.3:8080;
+		server 172.17.0.4:8080;
+	}
+
+	server {
+	        listen 8080;
+
+		location / {
+			proxy_pass http://backend;
+		}
+	}
+}
+```
+
+We need to copy the updated nginx.conf from local machine to the lb container
 ```
 docker cp nginx.conf lb-jegan:/opt/bitnami/nginx/conf/nginx.conf
 ```
@@ -448,18 +476,19 @@ We need to restart the lb container to apply config changes
 ```
 docker restart lb-jegan
 docker ps
+docker logs lb-jegan
 ```
 
 In order to verify the pages are coming from which web server, let's customize the index.html files in all the web servers
 ```
 echo "Web Server 1" > index.html
-docker cp index.html nginx1-jegan:/usr/share/nginx/html/index.html
+docker cp index.html nginx1-jegan:/app/index.html
 
 echo "Web Server 2" > index.html
-docker cp index.html nginx2-jegan:/usr/share/nginx/html/index.html
+docker cp index.html nginx2-jegan:/app/index.html
 
 echo "Web Server 3" > index.html
-docker cp index.html nginx3-jegan:/usr/share/nginx/html/index.html
+docker cp index.html nginx3-jegan:/app/index.html
 ```
 In case you are using bitnami/nginx:latest image, the above path should be /app/index.html in the place of /usr/share/nginx/html/index.html
 

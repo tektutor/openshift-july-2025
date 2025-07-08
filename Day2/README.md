@@ -97,6 +97,11 @@
 - Openshift supports new features like Build, BuildConfig which aren't supported by Kubernetes 
 - comes with Prometheus monitoring tool with Graphana visual dashboards pre-integrated
 - comes with pre-integrated RedHat marketplace from where we could selectively install additional operators
+- Public cloud vendors like AWS and Azure provided Managed Red Hat Openshift clusters
+  AWS
+  - ROSA
+  Azure
+  - ARO
 </pre>
 
 ## Info - Cluster

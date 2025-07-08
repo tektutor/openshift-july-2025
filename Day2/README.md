@@ -161,6 +161,7 @@
 <pre>
 - is a collection of related containers
 - in other words, a group of containers
+- is a logical group of related containers
 - is the smallest unit that can be deployed into Kubernetes/Openshift
 - containers within the same Pods shares the same IP Address and Ports
 - there are atleast two containers per pod
@@ -171,11 +172,50 @@
 
 ## Info - API Server Overview
 <pre>
-- this is a Pod  
+- this is a Pod 
+- is part of Control Plane components
+- supports loads of REST APIs for every feature supported by Kubernetes/Openshift
+- this is the only component that is allowed to read/write etcd database
+- this is the heart of Kubernetes/Openshift
+- most critical component
+- API Server just creates, updates, deleted records in etcd key/value database
+- each time API Server updates something in the etcd it will trigger broadcasting events
+- all the components in K8s/Openshift only communicated to API Server, they aren't aware of any other components
+- all the other components they communicate with API Server via REST API calls
+- the API Server after satisfying the request responds back via broadcasting events
 </pre>
 
 ## Info - etcd Overview
+<pre>
+- is a Pod
+- is part of Control Plane components
+- is a distributed key-value based database
+- it is an opensource database
+- it is an independent product developed outside of the scope of Kubernetes/Openshift, hence anyone can use this
+- Kubernetes & Openshift is using the independent etcd database to store the cluster state and application states
+- in case one wishes to recover a crashed k8s/openshift cluster, if have backup of etcd it is easy to recover/replicate the cluster else where
+</pre>
 
 ## Info - Scheduler Overview
+<pre>
+- this is a Pod
+- is part of Control Plane components  
+- schedules the new Pod to a healthy node
+- scheduler by itself can't schedule a Pod to run on any node, it can only send the scheduling recommendations to API Server via REST calls
+- Scheduler get's notifications from API server via events whenever new Pods are created
+</pre>
 
 ## Info - Controller Managers Overview
+<pre>
+- is a Pod
+- is part of Control Plane components
+- is a group of Controllers
+  - Deployment Controller
+  - ReplicaSet Controller
+  - DaemonSet Controller
+  - StatefulSet Controller
+  - Job Controller
+  - Node Controller
+  - CronJob Controller
+  - Endpoint Controller
+</pre>

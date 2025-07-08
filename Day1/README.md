@@ -540,7 +540,7 @@ docker rm -f mysql
 Let's create a new mysql container, but this time let's perist the data in an external disk(our local path)
 ```
 mkdir -p /tmp/jegan/mysql
-docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 mysql:latest
+docker run -d --name mysql --hostname mysql -e MYSQL_ROOT_PASSWORD=root@123 -v /tmp/jegan/mysql:/var/lib/mysql mysql:latest
 docker exec -it mysql sh
 mysql -u root -p
 SHOW DATABASES;

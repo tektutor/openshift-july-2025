@@ -365,7 +365,7 @@ docker ps | grep jegan
 Expected output
 ![image](https://github.com/user-attachments/assets/e445d03a-c6cd-46e8-b84f-39bbd866fda7)
 
-## Lab - Restart a running container, helps in apply config changes, etc/opt/bitnami/nginx/conf
+## Lab - Restart a running container
 ```
 docker restart ubuntu-jegan
 ```

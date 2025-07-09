@@ -157,6 +157,10 @@
 - user applications are allowed to run only as non-admin users, hence container images with root user won't work normally in OpenShift
 </pre>
 
+## Info - Red Hat Openshift High-Level Architecture
+![Openshift Architecture](openshiftArchitecture.png)
+![Openshift Architecture](master-node.png)
+
 ## Info - Pod Overview
 <pre>
 - is a collection of related containers
@@ -169,6 +173,7 @@
   - application container
 - as per industry best practice, only one application is supposed to run per Pod
 </pre>  
+![Pod](PodUpdated.png)
 
 ## Info - API Server Overview
 <pre>

@@ -113,7 +113,16 @@ oc new-project jegan
 oc create deployment nginx --image=bitnami/nginx:latest --replicas=3 --dry-run=client -o yaml
 
 oc create deployment nginx --image=bitnami/nginx:latest --replicas=3 --dry-run=client -o yaml > nginx-deploy.yml
+```
 
+Edit the nginx-deploy.yml file and add as shown below in the screenshot
+<pre>
+imagePullPolicy: IfNotPresent  
+</pre>
+![image](https://github.com/user-attachments/assets/34385530-624b-4a11-9b4c-7da8651ff21e)
+
+Once you updated the imagePullPolicy, you may proceed with the commands shown below
+```
 oc create -f nginx-deploy.yml --save-config
 oc get deploy,rs,po
 ```

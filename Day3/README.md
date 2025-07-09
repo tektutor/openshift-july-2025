@@ -105,3 +105,15 @@ oc whoami --show-console
 ```
 oc whoami --show-server
 ```
+
+## Lab - Deploying nginx in declarative style
+```
+oc delete project/jegan
+oc new-project jegan
+oc create deployment nginx --image=bitnami/nginx:latest --replicas=3 --dry-run=client -o yaml
+
+oc create deployment nginx --image=bitnami/nginx:latest --replicas=3 --dry-run=client -o yaml > nginx-deploy.yml
+
+oc create -f nginx-deploy.yml --save-config
+oc get deploy,rs,po
+```

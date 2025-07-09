@@ -95,3 +95,13 @@ Now you can test it
 ```
 curl http://nginx-jegan.apps.ocp4.palmeto.org
 ```
+
+## Lab - Finding the webconsole url
+```
+oc whoami --show-console
+```
+
+## Lab - Finding the API Server REST Endpoint url
+```
+oc whoami --show-server
+```

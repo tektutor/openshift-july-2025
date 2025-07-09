@@ -43,3 +43,21 @@ curl http://127.0.0.0:9999
 Once you are done with the testing, you can go to the first terminal and press Ctrl + c to stop port-forwarding.
 
 Port forward is used for testing purpose only, not to be used in production as it is accessible only on the machine where port-forwarding is done.
+
+## Lab - Creating an internal ClusterIP Service for our nginx deployment
+```
+oc project jegan
+oc expose deploy/nginx --type=ClusterIP --port=8080
+```
+
+List the services
+```
+oc get services
+oc get service
+oc get svc
+```
+
+Finding more details about a service
+```
+oc describe svc/nginx
+```

@@ -126,3 +126,8 @@ Once you updated the imagePullPolicy, you may proceed with the commands shown be
 oc create -f nginx-deploy.yml --save-config
 oc get deploy,rs,po
 ```
+
+The oc create command must be used only the first time, if you modify the yaml, we need to use apply to apply changes on the existing resources
+```
+oc apply -f nginx-deploy.yml
+```

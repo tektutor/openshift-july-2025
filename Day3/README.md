@@ -130,4 +130,5 @@ oc get deploy,rs,po
 The oc create command must be used only the first time, if you modify the yaml, we need to use apply to apply changes on the existing resources
 ```
 oc apply -f nginx-deploy.yml
+oc get pods
 ```

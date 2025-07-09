@@ -61,3 +61,7 @@ Finding more details about a service
 ```
 oc describe svc/nginx
 ```
+
+Expected output
+![image](https://github.com/user-attachments/assets/721d4379-3124-4f6e-b343-a9a412df9ae9)
+

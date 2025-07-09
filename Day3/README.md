@@ -45,6 +45,14 @@ Once you are done with the testing, you can go to the first terminal and press C
 Port forward is used for testing purpose only, not to be used in production as it is accessible only on the machine where port-forwarding is done.
 
 ## Lab - Creating an internal ClusterIP Service for our nginx deployment
+
+Kubernetes/Openshift Service
+<pre>
+- represents a group of load-balanced Pods from a single deployment
+- the load balancing is done by kube-proxy(Pod) running in every node
+- the kube-proxy will identify the Pods from a specific deployment using the selector label mentioned in nginx or respective deployment
+</pre>
+
 ```
 oc project jegan
 oc expose deploy/nginx --type=ClusterIP --port=8080

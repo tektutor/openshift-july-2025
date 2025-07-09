@@ -73,6 +73,9 @@
   - Custom Operators
 </pre>
 
+## Info - Kubernetes High Level Architecture
+![Kubernetes Architecture](KubernetesArchitecture2.png)
+
 ## Info - Red Hat Openshift
 <pre>
 - it is Red Hat's Distribution of Kubernetes

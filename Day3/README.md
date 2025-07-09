@@ -29,12 +29,17 @@ The below chain of activities happen internally within the Kubernetes/Openshift 
 </pre>
 
 ## Lab - Pod port-forward for quick testing
+Execute the below command in one terminal
 ```
 oc project jegan
 oc get pods
 oc port-forward pod/<your-pod-name> 9999:8080
 ```
-While the above command is running in a terminal, you can open another terminal and type the below command to access the web page served by that pod
+While the above command is running in a terminal, you can open another terminal and type the below command to access the web page served by that pod ( Try the below in a second terminal )
 ```
 curl http://127.0.0.0:9999
 ```
+
+Once you are done with the testing, you can go to the first terminal and press Ctrl + c to stop port-forwarding.
+
+Port forward is used for testing purpose only, not to be used in production as it is accessible only on the machine where port-forwarding is done.

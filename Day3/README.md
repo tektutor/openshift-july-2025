@@ -27,3 +27,14 @@ The below chain of activities happen internally within the Kubernetes/Openshift 
 - API Server receives the REST call status update from kubelet, it then updates the Pod status in the ectd database
   
 </pre>
+
+## Lab - Pod port-forward for quick testing
+```
+oc project jegan
+oc get pods
+oc port-forward pod/<your-pod-name> 9999:8080
+```
+While the above command is running in a terminal, you can open another terminal and type the below command to access the web page served by that pod
+```
+curl http://127.0.0.0:9999
+```

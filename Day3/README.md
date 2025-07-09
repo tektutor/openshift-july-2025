@@ -146,3 +146,33 @@ oc apply -f nginx-clusterip-svc.yml
 oc get svc
 oc describe svc/nginx
 ```
+
+## Lab - Creating NodePort External Service for nginx deployment in declarative style
+We need to first delete the clusterIP service as we wish to use the same name for the nginx nodeport service
+```
+oc delete -f nginx-clusterip-svc.yml
+```
+Now you may proceed as shown below to create nodeport service
+```
+oc expose deploy/nginx --type=NodePort --port=8080 --dry-run=client -o yaml > nginx-nodeport-svc.yml
+
+ls -l nginx*svc.yml
+oc apply -f nginx-nodeport-svc.yml
+oc get svc
+oc describe svc/nginx
+```
+
+## Lab - Creating LoadBalancer External Service for nginx deployment in declarative style
+We need to first delete the nodeport service as we wish to use the same name for the nginx nodeport service
+```
+oc delete -f nginx-nodeport-svc.yml
+```
+Now you may proceed as shown below to create nodeport service
+```
+oc expose deploy/nginx --type=LoadBalancer --port=8080 --dry-run=client -o yaml > nginx-lb-svc.yml
+
+ls -l nginx*svc.yml
+oc apply -f nginx-lb-svc.yml
+oc get svc
+oc describe svc/nginx
+```

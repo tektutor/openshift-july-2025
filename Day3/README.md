@@ -73,3 +73,25 @@ oc describe svc/nginx
 Expected output
 ![image](https://github.com/user-attachments/assets/721d4379-3124-4f6e-b343-a9a412df9ae9)
 
+Testing the ClusterIP Internal service
+```
+oc create deployment test --image=tektutor/spring-ms:1.0
+oc get po
+oc rsh deploy/test
+```
+
+Another recommended way you can test this service is by creating route
+```
+oc get svc
+oc expose svc/nginx
+```
+
+List the routes
+```
+oc get routes
+```
+
+Now you can test it 
+```
+curl http://nginx-jegan.apps.ocp4.palmeto.org
+```

@@ -132,3 +132,17 @@ The oc create command must be used only the first time, if you modify the yaml, 
 oc apply -f nginx-deploy.yml
 oc get pods
 ```
+
+## Lab - Creating ClusterIP Internal Service for nginx deployment in declarative style
+```
+oc expose deploy/nginx --type=ClusterIP --port=8080 --dry-run=client -o yaml
+
+oc expose deploy/nginx --type=ClusterIP --port=8080 --dry-run=client -o yaml > nginx-clusterip-svc.yml
+oc expose deploy/nginx --type=NodePort --port=8080 --dry-run=client -o yaml > nginx-nodeport-svc.yml
+oc expose deploy/nginx --type=LoadBalancer --port=8080 --dry-run=client -o yaml > nginx-lb-svc.yml
+
+ls -l nginx*svc.yml
+oc apply -f nginx-clusterip-svc.yml
+oc get svc
+oc describe svc/nginx
+```

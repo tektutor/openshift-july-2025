@@ -4,7 +4,7 @@
 ```
 oc create deployment nginx --image=bitnami/nginx:latest --replicas=3
 ```
-
+![Openshift Internals](openshift-internals.png)
 The below chain of activities happen internally within the Kubernetes/Openshift cluster
 <pre>
 - oc client tool makes a REST call to API server requesting it to create a deployment named nginx

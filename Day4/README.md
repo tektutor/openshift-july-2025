@@ -80,3 +80,5 @@ Let's apply the changes
 oc apply -f nginx-deploy.yml
 ```
 ![image](https://github.com/user-attachments/assets/a68d3f7b-3963-4dd9-9add-786e6dcc860a)
+![image](https://github.com/user-attachments/assets/4822a5ef-ea45-4c9f-b617-026ab7739c66)
+

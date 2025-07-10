@@ -121,7 +121,7 @@ metadata:
     app: nginx
   name: nginx
 spec:
-  host: nginx-jegan.apps-crc.testing
+  host: nginx-jegan.apps.ocp4.palmeto.org
   port:
     targetPort: 8080
   to:

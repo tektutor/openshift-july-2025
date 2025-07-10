@@ -243,6 +243,23 @@ Expected output
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/b61d7df9-8823-411f-936a-004b492cf42c" />
 
 ## Lab - Deploying your application using S2I source strategy
+
+Note
+<pre>
+- S2I - means Source to Image
+- In Kubernetes, application can be deployed in cluster only using existing container image
+- In Openshift, apart from deploying application using existing container image, it supports S2I
+- S2I source strategies like docker, source
+- In case of source strategy, Openshift generates a Build Config with that captures the github repo url and strategy that must be used to build
+- Openshift start a build, this creates an instance of Build Config called Build
+- The Build Controller, monitors the Build resource and spins a Pod to perform the build activity
+- The Build Pod, clones the GitHub repository and uses the Docker Image mentioned in the new-app command for the Build purpose
+- The application source code is compiled to generate an application executable using the Docker Image we suggested in the new-app command 
+- Build Config generates a custom image injecting the applicaiton binary as the startup application, pushes the image into internal Openshift Image Registry
+- Using the newly pushed image in OpenShift Image Registry, the application is deployed in your project namespace
+- The BuildConfig also automatically creates a service for the application
+- We need to create a route to access the application to test it further
+</pre>
 ```
 oc new-app --name=hello \
 registry.access.redhat.com/ubi8/openjdk-17:1.15-1.1682053058~https://github.com/tektutor/openshift-july-2025.git \

@@ -100,7 +100,7 @@ oc expose deploy/nginx-v1 --port=8080
 ```
 Create the second deployment
 ```
-oc create deployment nginx-v2 --image=tektutor/spring-ms:1.0 --replicas=3 --dry-run-client -o yaml > nginx-deploy-v2.yml
+oc create deployment nginx-v2 --image=tektutor/spring-ms:1.0 --replicas=3 --dry-run=client -o yaml > nginx-deploy-v2.yml
 ```
 Make sure the imagePullPolicy is updated to IfNotPresent before you apply into the cluster
 ```

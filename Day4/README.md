@@ -265,6 +265,9 @@ Note
 - We need to create a route to access the application to test it further
 </pre>
 ```
+oc delete project jegan
+oc new-project jegan
+
 oc new-app --name=hello \
 registry.access.redhat.com/ubi8/openjdk-17:1.15-1.1682053058~https://github.com/tektutor/openshift-july-2025.git \
 --context-dir=Day4/hello-microservice \

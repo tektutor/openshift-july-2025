@@ -1,5 +1,12 @@
 # Day 4
 
+## Lab - Cloning this training repository
+```
+git clone https://github.com/tektutor/openshift-july-2025.git
+cd openshift-july-2025
+```
+
+
 ## Lab - Rolling update
 <pre>
 - Rolling update is a K8s feature which is also supported by Red Hat Openshift

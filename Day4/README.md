@@ -83,3 +83,66 @@ oc apply -f nginx-deploy.yml
 ![image](https://github.com/user-attachments/assets/4822a5ef-ea45-4c9f-b617-026ab7739c66)
 ![image](https://github.com/user-attachments/assets/2370652e-41ed-41b2-a673-8822b35bdfe3)
 
+## Lab - Canary Deployment Strategy to split the traffic to 2 different version of your application
+Create your first deployment
+```
+oc create deployment nginx-v1 --image=bitnami/nginx:latest --replicas=3 --dry-run=client -o yaml > nginx-deploy-v1.yml
+```
+
+Make sure the imagePullPolicy is updated to IfNotPresent before you apply into the cluster
+```
+oc apply -f nginx-deploy-v1.yml
+```
+
+You may now create a clusterip service for the first deployment
+```
+oc expose deploy/nginx-v1 --port=8080
+```
+Create the second deployment
+```
+oc create deployment nginx-v2 --image=tektutor/spring-ms:1.0 --replicas=3 --dry-run-client -o yaml > nginx-deploy-v2.yml
+```
+Make sure the imagePullPolicy is updated to IfNotPresent before you apply into the cluster
+```
+oc apply -f nginx-deploy-v2.yml
+```
+
+You may now create a clusterip service for the first deployment
+```
+oc expose deploy/nginx-v2 --port=8080
+```
+
+Now let's create a route as shown belo
+<pre>
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: nginx
+  name: nginx
+spec:
+  host: nginx-jegan.apps-crc.testing
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: nginx-v1
+    weight: 50
+  alternateBackends:
+  - kind: Service
+    name: nginx  
+</pre>
+
+In the above yaml file, you need to replace 'jegan' with your project name before proceeding.
+
+You may create the route now
+```
+oc apply -f route.yml
+oc get route
+oc describe route/nginx
+```
+
+You can access the route from web browser
+```
+nginx-jegan.apps.ocp4.palmeto.org 
+```

@@ -184,4 +184,29 @@ The access mode mentioned in PV/PVC
 - the ingress rules are picked up by the Ingress Controller and then it configure the HAProxy or Nginx(F5)
 - in case of Openshift, out of the box it comes with Ingress Controller
 - in our lab, I have used HAProxy Load Balancer, hence HAProxy Ingress Controller will setup the routing rules for us when we create ingress rule
+- ingress represents a group of services ( clusterip, nodeport, loadbalancer services )
 </pre>
+
+Let's deploy nginx
+```
+cd ~/openshift-july-2025
+git pull
+cd Day4/ingress
+oc project jegan
+
+oc apply -f nginx-deploy.yml
+oc apply -f hello-deploy.yml
+oc apply -f nginx-svc.yml
+oc apply -f hello-svc.yml
+oc apply -f ingress.yml
+
+oc get svc
+oc describe svc/nginx
+oc describe svc/hello
+oc get ingress
+oc describe ingress/tektutor
+
+curl http://tektutor.apps.ocp4.palmeto.org/nginx
+curl http://tektutor.apps.ocp4.palmeto.org/hello
+```
+

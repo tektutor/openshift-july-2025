@@ -1,0 +1,11 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: tektutor-nfs
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+provisioner: no-provisioning 
+parameters:
+  server: 192.168.10.202  # Change this to 192.168.10.200 if you are working in Server 1
+  path: /var/nfs/storageclass
+  readOnly: "false"

@@ -156,3 +156,10 @@ git pull
 cd Day4/wordpress-mysql-multi-pod-deployment-with-persistent-storage
 ./deploy.sh
 ```
+
+If all goes well, in the Openshift webconsole you will see like this
+![image](https://github.com/user-attachments/assets/3e7a9ae5-b062-4c2b-a34c-17de4a2fafda)
+
+If you click on the wordpress route(the upward arrow on the wordpress), you are supposed to see the page below
+![image](https://github.com/user-attachments/assets/454c3a3d-275d-49ab-90a5-7c5b98ceee6e)
+

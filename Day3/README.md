@@ -235,7 +235,9 @@ spec:
 - In case of on-prem bare-metal Openshift setup like our training lab, LoadBalancer service will not work out of the box
 - LoadBalancer service is meant for managed Kubernetes/Openshift setup offered by public cloud like AWS/Azure
 - Hence, LoadBalancer service in AWS ROSA spins an Applicaiton Loader Balancer(ALB) or Network Loader Balancer(NLB)
-- In case of AWS ROSA it comes with AWS Load Balancer Operator which installs an AWS Load Balancer Controller, hence when we create LoadBalancer service for our application, the AWS Load Balancer Controller automatically detects that we had created LoadBalancer service and it then spins an ALB or NLB to load balance our applicaiton pods 
+- In case of AWS ROSA it comes with AWS Load Balancer Operator which installs an AWS Load Balancer Controller, 
+  hence when we create LoadBalancer service for our application, the AWS Load Balancer Controller automatically detects 
+  that we had created LoadBalancer service and it then spins an ALB or NLB to load balance our applicaiton pods 
 - In the local Openshift cluster setup, we need to install Metallb Operator to provide similar functionality
 </pre>
 
@@ -249,7 +251,8 @@ Let's install the Metallb Operator from Openshift web console
 ![image](https://github.com/user-attachments/assets/373e6253-945f-4edd-867d-7a8fe86a548e)
 ![image](https://github.com/user-attachments/assets/463d88fd-fa67-4a10-bd71-350b62a5b943)
 
-Whenever we create a LoadBalancer service, the Metallb Controller assigns an external IP for each LoadBalancer service we create. Hence, we need to allocate a range of IP addresses that can be used by Metallb Controller to assign IP for our LoadBalancer services.
+Whenever we create a LoadBalancer service, the Metallb Controller assigns an external IP for each LoadBalancer service we create. 
+Hence, we need to allocate a range of IP addresses that can be used by Metallb Controller to assign IP for our LoadBalancer services.
 
 Let's create an address-pool.yml
 <pre>

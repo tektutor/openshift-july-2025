@@ -210,7 +210,7 @@ curl http://tektutor.apps.ocp4.palmeto.org/nginx
 curl http://tektutor.apps.ocp4.palmeto.org/hello
 ```
 
-## Lab - Deploying your application using docker strategy
+## Lab - Deploying your application using S2I docker strategy
 ```
 oc new-app --name=hello https://github.com/tektutor/openshift-july-2025.git --context-dir=Day4/hello-microservice --strategy=docker
 oc expose svc/hello
@@ -223,5 +223,25 @@ Expected output
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/ed1bdb6b-8c51-4c61-978b-7f666791253d" />
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/927ac1bd-3362-4c4a-b62a-9e2b5ad1ed18" />
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/b61d7df9-8823-411f-936a-004b492cf42c" />
+
+## Lab - Deploying your application using S2I source strategy
+```
+oc new-app --name=hello \
+registry.access.redhat.com/ubi8/openjdk-17:1.15-1.1682053058~https://github.com/tektutor/openshift-july-2025.git \
+--context-dir=Day4/hello-microservice \
+--strategy=docker
+
+oc expose svc/hello
+oc logs -f bc/hello
+oc get route
+
+curl http://hello-jegan.apps.ocp4.palmeto.org
+```
+
+Expected output
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/aa3705f3-8bd7-411f-b5b9-582a51c9eed9" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/bc90fbb4-c620-4270-b9fb-453de6e2494c" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/420627b8-d792-4f42-bdfd-a2423653e531" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/fccedbc9-7afc-4907-8178-0f631b31b630" />
 
 

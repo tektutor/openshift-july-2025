@@ -244,8 +244,23 @@ Let's install the Metallb Operator from Openshift web console
 ![image](https://github.com/user-attachments/assets/c87ba32e-dd31-4a27-ac5f-1af6e9718ee3)
 ![image](https://github.com/user-attachments/assets/ab65a235-e645-4e02-9b4a-7b24c88a8186)
 ![image](https://github.com/user-attachments/assets/a376c4eb-1577-4de5-9338-baf4c8fb395d)
-![image](https://github.com/user-attachments/assets/5b5e97ed-499f-4f72-b5b1-1b614608fa59)
+![image](https://github.com/user-attachmentsassets/5b5e97ed-499f-4f72-b5b1-1b614608fa59)
 ![image](https://github.com/user-attachments/assets/38b73f04-3222-4745-adc8-3b3725c939d5)
 ![image](https://github.com/user-attachments/assets/373e6253-945f-4edd-867d-7a8fe86a548e)
 ![image](https://github.com/user-attachments/assets/463d88fd-fa67-4a10-bd71-350b62a5b943)
 
+Whenever we create a LoadBalancer service, the Metallb Controller assigns an external IP for each LoadBalancer service we create. Hence, we need to allocate a range of IP addresses that can be used by Metallb Controller to assign IP for our LoadBalancer services.
+
+Let's create an address-pool.yml
+<pre>
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: ip-addresspool-sample1
+  namespace: metallb-system
+spec:
+  addresses:
+    - 192.168.126.15-192.168.126.25
+  autoAssign: true
+  avoidBuggyIPs: false  
+</pre>

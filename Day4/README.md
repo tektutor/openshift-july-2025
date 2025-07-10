@@ -146,3 +146,13 @@ You can access the route from web browser
 ```
 nginx-jegan.apps.ocp4.palmeto.org 
 ```
+
+## Lab - Deploying Wordpress and mysql multi-pod application that uses Persistent Volume and Claim
+You need to modify the mysql-pv.yml, mysql-pvc.yml, mysql-deploy.yml, wordpress-pv.yml, wordpress-pvc.yml, wordpress-deploy.yml and replace 'jegan' with your name.  Also you need to update the IP address of NFS server to 192.168.10.200 if you are working on Server1 otherwise 192.168.10.202. 
+
+```
+cd ~/openshift-july-2025
+git pull
+cd Day4/wordpress-mysql-multi-pod-deployment-with-persistent-storage
+./deploy.sh
+```

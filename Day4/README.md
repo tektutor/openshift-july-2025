@@ -210,3 +210,17 @@ curl http://tektutor.apps.ocp4.palmeto.org/nginx
 curl http://tektutor.apps.ocp4.palmeto.org/hello
 ```
 
+## Lab - Deploying your application using docker strategy
+```
+oc new-app --name=hello https://github.com/tektutor/openshift-july-2025.git --context-dir=Day4/hello-microservice --strategy=docker
+oc expose svc/hello
+curl http://hello-jegan.apps.ocp4.palmeto.org
+```
+
+Expected output
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/9a0e159e-8fa1-472b-9879-eb2daaf24edc" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/ed1bdb6b-8c51-4c61-978b-7f666791253d" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/927ac1bd-3362-4c4a-b62a-9e2b5ad1ed18" />
+<img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/b61d7df9-8823-411f-936a-004b492cf42c" />
+
+

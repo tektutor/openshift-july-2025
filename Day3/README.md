@@ -264,3 +264,42 @@ spec:
   autoAssign: true
   avoidBuggyIPs: false  
 </pre>
+![image](https://github.com/user-attachments/assets/ec76669a-43f3-4de7-aff4-46ec4cc7884a)
+
+Let's allocate the IP range as shown below
+```
+oc apply -f address-pool.yml
+```
+![image](https://github.com/user-attachments/assets/8da72b00-ed4b-4c1e-9e2c-5a10865e10bf)
+
+We need to activate the IP address pool we allocated otherwise our openshift cluster wouldn't recognize them
+![image](https://github.com/user-attachments/assets/8ea2444a-1ae1-43cf-b5a0-8bc6180aa7f1)
+
+Let's active the address pool we allocated as shown below
+```
+oc apply -f l2-advt.yml
+```
+![image](https://github.com/user-attachments/assets/4a4082ca-606d-473c-9847-f10bd58065c2)
+
+We now need to create an instance of the metallb controller to activate/assign external ip for our loadbalancer services
+![image](https://github.com/user-attachments/assets/71da29b0-6f34-4332-8042-180ea855928f)
+
+Now, let's create a LoadBalancer service and see if the metallb controller is assigning an external ip address
+```
+oc project jegan
+oc create deploy nginx --image=bitnami/nginx:latest --replicas=3 --dry-run=client -o yaml > nginx-deploy.yml
+oc apply -f nginx-deploy.yml
+
+# Create a LoadBalancer service
+oc expose deploy/nginx --type=LoadBalancer --port=8080
+
+# List the services
+oc get svc
+oc describe svc/nginx
+
+# Access the external loadbalancer service
+curl http://192.168.126.15:8080
+```
+![image](https://github.com/user-attachments/assets/5b5b8ad0-a0e1-4326-9b2a-f8ae3eff1c47)
+
+

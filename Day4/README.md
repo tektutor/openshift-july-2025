@@ -230,7 +230,11 @@ Note
 </pre>
 
 ```
-oc new-app --name=hello https://github.com/tektutor/openshift-july-2025.git --context-dir=Day4/hello-microservice --strategy=docker
+oc new-app --name=hello \
+https://github.com/tektutor/openshift-july-2025.git \
+--context-dir=Day4/hello-microservice \
+--strategy=docker
+
 oc expose svc/hello
 oc logs -f bc/hello
 curl http://hello-jegan.apps.ocp4.palmeto.org

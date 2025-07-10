@@ -283,6 +283,7 @@ oc apply -f l2-advt.yml
 
 We now need to create an instance of the metallb controller to activate/assign external ip for our loadbalancer services
 ![image](https://github.com/user-attachments/assets/71da29b0-6f34-4332-8042-180ea855928f)
+![image](https://github.com/user-attachments/assets/67b84175-e0ea-454c-b468-489678f455dc)
 
 Now, let's create a LoadBalancer service and see if the metallb controller is assigning an external ip address
 ```

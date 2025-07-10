@@ -176,3 +176,4 @@ The access mode mentioned in PV/PVC
 - ReadWriteOnce - All pods from the same openshift node can read and write to the volume(external storage)
 - ReadWriteMany - All pods from every openshift nodes can read and write to the voluem(external storage)
 </pre>
+

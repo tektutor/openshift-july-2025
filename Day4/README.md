@@ -176,3 +176,12 @@ The access mode mentioned in PV/PVC
 - ReadWriteOnce - All pods from the same openshift node can read and write to the volume(external storage)
 - ReadWriteMany - All pods from every openshift nodes can read and write to the voluem(external storage)
 </pre>
+
+## Info - Ingress
+<pre>
+- it is not a service
+- it is a Kubernetes/Openshift resource to define routing(forwarding) rules
+- the ingress rules are picked up by the Ingress Controller and then it configure the HAProxy or Nginx(F5)
+- in case of Openshift, out of the box it comes with Ingress Controller
+- in our lab, I have used HAProxy Load Balancer, hence HAProxy Ingress Controller will setup the routing rules for us when we create ingress rule
+</pre>

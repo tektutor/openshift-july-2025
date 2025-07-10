@@ -229,3 +229,23 @@ spec:
   from: "4th Nov 2025"
   to: "8th Nov 2025"  
 </pre>
+
+## Lab - Installing Metallb Operator in Red Hat Openshift
+<pre>
+- In case of on-prem bare-metal Openshift setup like our training lab, LoadBalancer service will not work out of the box
+- LoadBalancer service is meant for managed Kubernetes/Openshift setup offered by public cloud like AWS/Azure
+- Hence, LoadBalancer service in AWS ROSA spins an Applicaiton Loader Balancer(ALB) or Network Loader Balancer(NLB)
+- In case of AWS ROSA it comes with AWS Load Balancer Operator which installs an AWS Load Balancer Controller, hence when we create LoadBalancer service for our application, the AWS Load Balancer Controller automatically detects that we had created LoadBalancer service and it then spins an ALB or NLB to load balance our applicaiton pods 
+- In the local Openshift cluster setup, we need to install Metallb Operator to provide similar functionality
+</pre>
+
+Let's install the Metallb Operator from Openshift web console
+![image](https://github.com/user-attachments/assets/4b5db602-1b46-4a96-9617-ac9ce7cdbc56)
+![image](https://github.com/user-attachments/assets/c87ba32e-dd31-4a27-ac5f-1af6e9718ee3)
+![image](https://github.com/user-attachments/assets/ab65a235-e645-4e02-9b4a-7b24c88a8186)
+![image](https://github.com/user-attachments/assets/a376c4eb-1577-4de5-9338-baf4c8fb395d)
+![image](https://github.com/user-attachments/assets/5b5e97ed-499f-4f72-b5b1-1b614608fa59)
+![image](https://github.com/user-attachments/assets/38b73f04-3222-4745-adc8-3b3725c939d5)
+![image](https://github.com/user-attachments/assets/373e6253-945f-4edd-867d-7a8fe86a548e)
+![image](https://github.com/user-attachments/assets/463d88fd-fa67-4a10-bd71-350b62a5b943)
+

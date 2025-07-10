@@ -163,3 +163,8 @@ If all goes well, in the Openshift webconsole you will see like this
 If you click on the wordpress route(the upward arrow on the wordpress), you are supposed to see the page below
 ![image](https://github.com/user-attachments/assets/454c3a3d-275d-49ab-90a5-7c5b98ceee6e)
 
+The access mode mentioned in PV/PVC
+<pre>
+ReadWriteOnce - All pods from the same openshift node can read and write to the volume(external storage)
+ReadWriteMany - All pods from every openshift nodes can read and write to the voluem(external storage)
+</pre>

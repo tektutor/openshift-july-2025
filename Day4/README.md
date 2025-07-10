@@ -211,6 +211,24 @@ curl http://tektutor.apps.ocp4.palmeto.org/hello
 ```
 
 ## Lab - Deploying your application using S2I docker strategy
+Note
+<pre>
+- S2I - means Source to Image
+- In Kubernetes, application can be deployed in cluster only using existing container image
+- In Openshift, apart from deploying application using existing container image, it supports S2I
+- S2I source strategies like docker, source
+- In case of docker strategy, Openshift generates a Build Config with that captures the github repo url and strategy that must be used to build
+- Openshift start a build, this creates an instance of Build Config called Build
+- The Build Controller, monitors the Build resource and spins a Pod to perform the build activity
+- The Build Pod, clones the GitHub repository and looks for Dockerfile as we mentioned docker strategy
+- In Docker strategy, it performs a custom image build using the Dockerfile
+- As part of image build, as per the instructions mentioned in the Dockerfile the application source is compiled to generate an application executable
+- With the application binary, it creates a custom image as mentioned in the Dockerfile, pushes the image into internal Openshift Image Registry
+- Using the newly pushed image in OpenShift Image Registry, the application is deployed in your project namespace
+- The BuildConfig also automatically creates a service for the application
+- We need to create a route to access the application to test it further
+</pre>
+
 ```
 oc new-app --name=hello https://github.com/tektutor/openshift-july-2025.git --context-dir=Day4/hello-microservice --strategy=docker
 oc expose svc/hello
@@ -229,7 +247,7 @@ Expected output
 oc new-app --name=hello \
 registry.access.redhat.com/ubi8/openjdk-17:1.15-1.1682053058~https://github.com/tektutor/openshift-july-2025.git \
 --context-dir=Day4/hello-microservice \
---strategy=docker
+--strategy=source
 
 oc expose svc/hello
 oc logs -f bc/hello

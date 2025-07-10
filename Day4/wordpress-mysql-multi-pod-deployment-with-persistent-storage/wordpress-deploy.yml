@@ -35,8 +35,11 @@ spec:
         - name: WORDPRESS_DATABASE_PASSWORD
           value: root@123
 
+        - name: WORDPRESS_DATABASE_NAME
+          value: wordpress
+
         - name: WORDPRESS_DATABASE_HOST
           value: mysql 
 
-        - name: WORDPRESS_DATABASE_PORT_NUMBER
+        - name: WORDPRESS_DATABASE_PORT
           value: "3306"

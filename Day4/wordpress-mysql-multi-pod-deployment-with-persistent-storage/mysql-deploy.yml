@@ -1,9 +1,9 @@
-apiversion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: mysql
   labels:
     app: mysql
-  name: mysql
 spec:
   replicas: 1
   selector:
@@ -18,7 +18,6 @@ spec:
       - name: mysql-storage
         persistentVolumeClaim:
           claimName: mysql-pvc-jegan  #Replace 'jegan' with your name
-
       containers:
       - name: mysql
         image: bitnami/mariadb:latest

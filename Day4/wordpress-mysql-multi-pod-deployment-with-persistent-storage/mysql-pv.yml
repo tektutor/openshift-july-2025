@@ -10,8 +10,7 @@ spec:
   volumeMode: Filesystem
   accessModes:
   - ReadWriteOnce  # All the pods from any node in the openshift cluster can read & write this external storage
-persistentVolumeReclaimPolicy: Retain
-
-nfs:
-  server: 192.168.10.200  # In case you are working on second server, you need to change this to 192.168.10.202
-  path: /var/nfs/jegan/mysql  # Replace jegan with your linux user
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    server: 192.168.10.200  # In case you are working on second server, you need to change this to 192.168.10.202
+    path: /var/nfs/jegan/mysql  # Replace jegan with your linux user

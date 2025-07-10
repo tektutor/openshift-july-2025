@@ -1,5 +1,12 @@
 # Day 4
 
+## Lab - Cloning this training repository
+```
+git clone https://github.com/tektutor/openshift-july-2025.git
+cd openshift-july-2025
+```
+
+
 ## Lab - Rolling update
 <pre>
 - Rolling update is a K8s feature which is also supported by Red Hat Openshift
@@ -146,3 +153,26 @@ You can access the route from web browser
 ```
 nginx-jegan.apps.ocp4.palmeto.org 
 ```
+
+## Lab - Deploying Wordpress and mysql multi-pod application that uses Persistent Volume and Claim
+You need to modify the mysql-pv.yml, mysql-pvc.yml, mysql-deploy.yml, wordpress-pv.yml, wordpress-pvc.yml, wordpress-deploy.yml and replace 'jegan' with your name.  Also you need to update the IP address of NFS server to 192.168.10.200 if you are working on Server1 otherwise 192.168.10.202. 
+
+```
+cd ~/openshift-july-2025
+git pull
+cd Day4/wordpress-mysql-multi-pod-deployment-with-persistent-storage
+./deploy.sh
+```
+
+If all goes well, in the Openshift webconsole you will see like this
+![image](https://github.com/user-attachments/assets/3e7a9ae5-b062-4c2b-a34c-17de4a2fafda)
+
+If you click on the wordpress route(the upward arrow on the wordpress), you are supposed to see the page below
+![image](https://github.com/user-attachments/assets/454c3a3d-275d-49ab-90a5-7c5b98ceee6e)
+
+The access mode mentioned in PV/PVC
+<pre>
+- In our Openshift cluster, we have 3 master and 3 workers nodes, total 6 nodes(Virtual Machine)
+- ReadWriteOnce - All pods from the same openshift node can read and write to the volume(external storage)
+- ReadWriteMany - All pods from every openshift nodes can read and write to the voluem(external storage)
+</pre>

@@ -165,6 +165,7 @@ If you click on the wordpress route(the upward arrow on the wordpress), you are 
 
 The access mode mentioned in PV/PVC
 <pre>
-ReadWriteOnce - All pods from the same openshift node can read and write to the volume(external storage)
-ReadWriteMany - All pods from every openshift nodes can read and write to the voluem(external storage)
+- In our Openshift cluster, we have 3 master and 3 workers nodes, total 6 nodes(Virtual Machine)
+- ReadWriteOnce - All pods from the same openshift node can read and write to the volume(external storage)
+- ReadWriteMany - All pods from every openshift nodes can read and write to the voluem(external storage)
 </pre>

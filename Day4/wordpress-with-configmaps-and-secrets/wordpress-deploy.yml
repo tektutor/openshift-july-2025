@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: wordpress
+  name: wordpress
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordpress
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      volumes:
+      - name: wordpress-storage
+        persistentVolumeClaim:
+          claimName: wordpress-pvc-jegan  #Replace 'jegan' with your name
+
+      containers:
+      - name: wordpress
+        image: bitnami/wordpress:latest
+        imagePullPolicy: IfNotPresent
+
+        volumeMounts:
+        - name: wordpress-storage
+          mountPath: /bitnami/mariadb/data
+
+        env:
+        - name: WORDPRESS_DATABASE_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql-login-credentials
+              key: username
+
+        - name: WORDPRESS_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-login-credentials
+              key: password
+
+        - name: WORDPRESS_DATABASE_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: mysql-configs
+              key: db_name
+
+        - name: WORDPRESS_DATABASE_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: mysql-configs
+              key: service_name
+
+        - name: WORDPRESS_DATABASE_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: mysql-configs
+              key: db_port 

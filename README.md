@@ -269,3 +269,8 @@ Check if you are able to list the openshift nodes
 ```
 oc get nodes
 ```
+
+## Cloning this repositoryr
+cd ~
+git clone https://github.com/tektutor/openshift-july-2025.git
+cd openshift-july-2025

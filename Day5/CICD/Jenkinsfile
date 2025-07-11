@@ -30,6 +30,7 @@ pipeline {
      stage ( "Stage 4 - Deloy into OpenShift" ) {
 	steps {
 	   dir("Day5/CICD/declarative-manifest-scripts") {
+		sh "oc project jegan"
 		sh "oc apply -f hello-deploy.yml"
 		sh "oc apply -f hello-svc.yml"
 		sh "oc apply -f hello-route.yml"

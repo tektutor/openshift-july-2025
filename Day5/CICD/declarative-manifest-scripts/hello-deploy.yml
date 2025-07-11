@@ -10,15 +10,11 @@ spec:
   selector:
     matchLabels:
       app: hello
-  strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
         app: hello
     spec:
       containers:
-      - image: tektutor/hello:1.0
+      - image: tektutor/hello:5.0
         name: hello
-        resources: {}
-status: {}

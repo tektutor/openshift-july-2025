@@ -299,3 +299,45 @@ oc describe buildconfig/hello
 oc describe build/hello
 ```
 
+## Lab - Scheduler affinity Preffered and Required
+
+Deploy requred-deploy.yml when no nodes has disk=ssd label
+```
+cd ~/openshift-july-2025
+git pull
+cd Day5/scheduler
+oc apply -f preferred-deploy.yml
+oc get po -o wide
+```
+We can notice that even though no nodes meets the criteria, scheduler went ahead and deployed the pods.
+
+Now, let's delete the deployment, assign disk=ssd label to worker2 node and redploy
+```
+oc delete -f preferred-deploy.yml
+oc label node/worker02.ocp4.palmeto.org disk=ssd
+oc get nodes -l disk=ssd
+
+oc apply -f preferred-deploy.yml
+oc get pod -o wide
+```
+
+Now you may notice, all the pods gets deployed into worker2 node as only worker2 node has SSD disk. 
+
+Let's understand the required affinity condition
+```
+oc delete -f preferred-deploy.yml
+oc apply -f required-deploy.yml
+oc get po -o wide
+```
+
+Now you may notice, all the pods are deployed into worker2 node as only worker2 node has SSD disk.
+```
+oc delete -f preferred-deploy.yml
+
+oc label node worker02.ocp4.palmeto.org disk-
+
+oc apply -f required-deploy.yml
+oc get po -o wide
+```
+Now all the pods will be in pending state as no nodes meets the criteria.  This is the difference between Preferred and Required Scheduler Affinity.
+

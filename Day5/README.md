@@ -1,15 +1,5 @@
 # Day 5
 
-## Post Assessment ( Kindly complete this from Lab Machine )
-<pre>
-https://forms.cloud.microsoft/r/AS8uFKcMye
-</pre>
- 
-## Feedback
-<pre>
-https://forms.cloud.microsoft/r/ViT1uvaSYj
-</pre>
-
 ## Info - Docker Network Model
 <pre>
 - For each container that we create, Docker creates a pair of veth devices (virtual ethernet - software defined network card with network stack )

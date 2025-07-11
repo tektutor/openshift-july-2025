@@ -28,8 +28,9 @@ pipeline {
      }
      stage ( "Stage 4 - Build Custom Hello Microservice Docker Image" ) {
 	steps {
-	   dir("Day5/CICD/hello-microservice") {
-		sh "docker build -t tektutor/hello:5.0 ."
+	   dir("Day5/CICD/declarative-manifest-scripts") {
+		sh "oc apply -f build-config.yml"
+                sh "oc start-build bc/hello"
            }
 	}
      }  

@@ -8,7 +8,7 @@ public class HelloController {
 
 	@RequestMapping("/")
 	public String index() {
-		return "Hello Microservice 1.0 !";
+		return "Hello Microservice 5.0 !";
 	}
 
 }

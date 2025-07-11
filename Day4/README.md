@@ -290,4 +290,12 @@ Expected output
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/420627b8-d792-4f42-bdfd-a2423653e531" />
 <img width="1920" height="1168" alt="image" src="https://github.com/user-attachments/assets/fccedbc9-7afc-4907-8178-0f631b31b630" />
 
+If you wish to list out the imagestreams, buildconfig, build deployment, etc
+```
+oc get all
+oc describe deploy/hello
+oc describe imagestream/hello
+oc describe buildconfig/hello
+oc describe build/hello
+```
 

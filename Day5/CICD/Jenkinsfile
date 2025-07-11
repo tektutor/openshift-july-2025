@@ -26,8 +26,14 @@ pipeline {
            }
 	}
      }
-
-     stage ( "Stage 4 - Deloy into OpenShift" ) {
+     stage ( "Stage 4 - Build Custom Hello Microservice Docker Image" ) {
+	steps {
+	   dir("Day5/CICD/hello-microservice") {
+		sh "docker build -t tektutor/hello:5.0 ."
+           }
+	}
+     }  
+     stage ( "Stage 5 - Deloy into OpenShift" ) {
 	steps {
 	   dir("Day5/CICD/declarative-manifest-scripts") {
 		sh "oc project jegan"

@@ -68,3 +68,7 @@
 - this offers extra layer of security to your applications running within Kubernetes/Openshift
 </pre>
 
+## Lab - CICD Pipline
+
+<img width="1909" height="1084" alt="image" src="https://github.com/user-attachments/assets/2a01f8fc-4752-41b5-b65f-08c475c2acd2" />
+

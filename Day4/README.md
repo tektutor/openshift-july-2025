@@ -360,3 +360,21 @@ sudo ./get_helm.sh
 ```
 
 <img width="1909" height="638" alt="image" src="https://github.com/user-attachments/assets/38ead400-f584-4cc7-a77c-2fb60871cd6f" />
+
+## Lab - Packaging our wordpress deployment into a Helm Chart and deploy/undeploy wordpress using helm package manager 
+
+```
+cd ~/openshift-july-2025
+git pull
+cd Day5/helm
+helm create wordpress
+tree wordpress
+cd wordpress/templates
+rm -rf *
+cd ../..
+cp manifest-scripts/*.yml wordpress/templates
+echo "" > wordpress/values.yaml
+
+helm package wordpress
+helm install wordpress wordpress-
+```

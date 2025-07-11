@@ -1,39 +1,42 @@
 pipeline {
-  agent none
+  agent "any"
 
   stages {
 
      stage ( "Stage 1 - compile" ) {
-	agent { label 'docker-slave-jenkins' }
 	steps {
-	   dir("Day5/CICD/HelloMicroservice") {
+	   dir("Day5/CICD/hello-microservice") {
 		sh "mvn compile"
            }
 	}
      }
 
      stage ( "Stage 2 - test" ) {
-	agent { label 'docker-slave-jenkins' }
 	steps {
-	   dir("Day5/CICD/HelloMicroservice") {
+	   dir("Day5/CICD/hello-microservice") {
 		sh "mvn test"
            }
 	}
      }
 
      stage ( "Stage 3 - package" ) {
-	agent { label 'docker-slave-jenkins' }
 	steps {
-	   dir("Day5/CICD/HelloMicroservice") {
+	   dir("Day5/CICD/hello-microservice") {
 		sh "mvn package"
            }
 	}
      }
-
-     stage ( "Stage 4 - Deloy into OpenShift" ) {
-	agent { label "built-in" }
+     stage ( "Stage 4 - Build Custom Hello Microservice Docker Image" ) {
+	steps {
+	   dir("Day5/CICD/hello-microservice") {
+		sh "docker build -t tektutor/hello:5.0 ."
+           }
+	}
+     }  
+     stage ( "Stage 5 - Deloy into OpenShift" ) {
 	steps {
 	   dir("Day5/CICD/declarative-manifest-scripts") {
+		sh "oc project jegan"
 		sh "oc apply -f hello-deploy.yml"
 		sh "oc apply -f hello-svc.yml"
 		sh "oc apply -f hello-route.yml"

@@ -12,7 +12,7 @@ spec:
     git:
       uri: "https://github.com/tektutor/openshift-july-2025.git"
       ref: main
-    contextDir: "Day5/CICD/declarative-manifest-scripts"
+    contextDir: "Day5/CICD/hello-microservice"
   strategy:
     type: Docker
   output:

@@ -1,0 +1,23 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: hello
+  labels:
+    name: hello
+spec:
+  triggers:
+  - type: ConfigChange
+  source:
+    type: Git
+    git:
+      uri: "https://github.com/tektutor/openshift-july-2025.git"
+      ref: main
+    contextDir: "Day5/CICD/declarative-manifest-scripts"
+  strategy:
+    type: Docker
+  output:
+    to:
+      kind: DockerImage
+      name: "docker.io/library/tektutor/hello:5.0"
+    pushSecret:
+      name: tektutor-docker-hub-secrets

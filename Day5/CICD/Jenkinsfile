@@ -5,7 +5,7 @@ pipeline {
 
      stage ( "Stage 1 - compile" ) {
 	steps {
-	   dir("Day5/CICD/HelloMicroservice") {
+	   dir("Day5/CICD/hello-microservice") {
 		sh "mvn compile"
            }
 	}
@@ -13,7 +13,7 @@ pipeline {
 
      stage ( "Stage 2 - test" ) {
 	steps {
-	   dir("Day5/CICD/HelloMicroservice") {
+	   dir("Day5/CICD/hello-microservice") {
 		sh "mvn test"
            }
 	}
@@ -21,7 +21,7 @@ pipeline {
 
      stage ( "Stage 3 - package" ) {
 	steps {
-	   dir("Day5/CICD/HelloMicroservice") {
+	   dir("Day5/CICD/hello-microservice") {
 		sh "mvn package"
            }
 	}

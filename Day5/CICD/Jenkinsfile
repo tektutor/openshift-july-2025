@@ -1,0 +1,44 @@
+pipeline {
+  agent none
+
+  stages {
+
+     stage ( "Stage 1 - compile" ) {
+	agent { label 'docker-slave-jenkins' }
+	steps {
+	   dir("Day5/CICD/HelloMicroservice") {
+		sh "mvn compile"
+           }
+	}
+     }
+
+     stage ( "Stage 2 - test" ) {
+	agent { label 'docker-slave-jenkins' }
+	steps {
+	   dir("Day5/CICD/HelloMicroservice") {
+		sh "mvn test"
+           }
+	}
+     }
+
+     stage ( "Stage 3 - package" ) {
+	agent { label 'docker-slave-jenkins' }
+	steps {
+	   dir("Day5/CICD/HelloMicroservice") {
+		sh "mvn package"
+           }
+	}
+     }
+
+     stage ( "Stage 4 - Deloy into OpenShift" ) {
+	agent { label "built-in" }
+	steps {
+	   dir("Day5/CICD/declarative-manifest-scripts") {
+		sh "oc apply -f hello-deploy.yml"
+		sh "oc apply -f hello-svc.yml"
+		sh "oc apply -f hello-route.yml"
+           }
+	}
+     }
+  }
+}

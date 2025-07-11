@@ -341,3 +341,44 @@ oc get po -o wide
 ```
 Now all the pods will be in pending state as no nodes meets the criteria.  This is the difference between Preferred and Required Scheduler Affinity.
 
+
+## Info - Helm 
+<pre>
+- it is a package manager for Kubernetes & Openshift applications
+- anyone who deployed multi-pod application with declarative manifest scrips will know how difficult it would be to follow certain order while deploy and reverse order while undeploying the application
+- in case we skip the order, things take longer time to figure out or cleanup the deployed resources
+- Instead we could use helm to package our application as Helm charts
+- Helm can be used to bundle/package many manifest(yaml) files into Helm Charts, can be used to install/uninstall/upgrade application neatly
+</pre>
+
+## Demo - Installing Helm in the lab machine
+```
+cd ~
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+chmod +x ./get_helm.sh
+sudo ./get_helm.sh
+```
+
+<img width="1909" height="638" alt="image" src="https://github.com/user-attachments/assets/38ead400-f584-4cc7-a77c-2fb60871cd6f" />
+
+## Lab - Packaging our wordpress deployment into a Helm Chart and deploy/undeploy wordpress using helm package manager 
+
+```
+cd ~/openshift-july-2025
+git pull
+cd Day5/helm
+helm create wordpress
+tree wordpress
+cd wordpress/templates
+rm -rf *
+cd ../..
+cp manifest-scripts/*.yml wordpress/templates
+echo "" > wordpress/values.yaml
+
+helm package wordpress
+helm install wordpress wordpress
+```
+<img width="1909" height="977" alt="image" src="https://github.com/user-attachments/assets/b7a204b9-589e-4ad9-a845-61904c76f858" />
+<img width="1909" height="977" alt="image" src="https://github.com/user-attachments/assets/32b25312-3c31-4662-be63-aed88b816c55" />
+<img width="1909" height="1084" alt="image" src="https://github.com/user-attachments/assets/8c7342d1-4b60-4dea-95cd-a0400a01be7a" />
+<img width="1909" height="1084" alt="image" src="https://github.com/user-attachments/assets/1e77db06-d374-4eaf-bc09-c35bde6bccb1" />

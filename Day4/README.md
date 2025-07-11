@@ -376,5 +376,9 @@ cp manifest-scripts/*.yml wordpress/templates
 echo "" > wordpress/values.yaml
 
 helm package wordpress
-helm install wordpress wordpress-
+helm install wordpress wordpress
 ```
+<img width="1909" height="977" alt="image" src="https://github.com/user-attachments/assets/b7a204b9-589e-4ad9-a845-61904c76f858" />
+<img width="1909" height="977" alt="image" src="https://github.com/user-attachments/assets/32b25312-3c31-4662-be63-aed88b816c55" />
+<img width="1909" height="1084" alt="image" src="https://github.com/user-attachments/assets/8c7342d1-4b60-4dea-95cd-a0400a01be7a" />
+<img width="1909" height="1084" alt="image" src="https://github.com/user-attachments/assets/1e77db06-d374-4eaf-bc09-c35bde6bccb1" />

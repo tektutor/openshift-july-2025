@@ -1,4 +1,4 @@
-# Day 5
+<img width="1909" height="1084" alt="image" src="https://github.com/user-attachments/assets/cc31f88a-c688-4c03-a559-b76831b17400" /># Day 5
 
 ## Info - Docker Network Model
 <pre>
@@ -70,5 +70,12 @@
 
 ## Lab - CICD Pipline
 
+We need to start Jenkins 
+```
+jar -jar ./jenkins.war
+```
+Expected output
+<img width="1909" height="1084" alt="image" src="https://github.com/user-attachments/assets/23cd852d-b54c-4676-8c7c-daf5e30a98da" />
 <img width="1909" height="1084" alt="image" src="https://github.com/user-attachments/assets/2a01f8fc-4752-41b5-b65f-08c475c2acd2" />
+<img width="1909" height="1084" alt="image" src="https://github.com/user-attachments/assets/ade1209b-016a-466e-a6c5-55f44b6a9300" />
 
